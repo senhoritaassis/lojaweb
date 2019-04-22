@@ -9,3 +9,19 @@ function visualizar (){
     exibir("produto/visualizar", $prod);
             
 }
+function adicionar (){
+    if(ehPost())    {
+       $nome = $_POST["nome"];
+       $produto = $_POST["produto"];
+       $preco = $_POST["preco"];
+       $fabricante = $_POST["fabricante"];
+       $descricao = $_POST["descricao"];
+       
+      
+       
+       print_r ($_POST);
+       
+    }else{
+       exibir("produto/formulario");
+    }
+}
