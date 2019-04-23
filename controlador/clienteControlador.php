@@ -1,6 +1,6 @@
 <?php
 
-function adicionar (){
+function cadastro (){
     if(ehPost())    {
        $nome = $_POST["email"];
        $produto = $_POST["senha"];
@@ -17,5 +17,23 @@ function adicionar (){
        
     }else{
        exibir("cliente/formulario");
+    }
+}
+
+function contato (){
+    if(ehPost())    {
+       $nome = $_POST["nome"];
+       $produto = $_POST["email"];
+       $preco = $_POST["assunto"];
+       $descricao = $_POST["tele"];
+       $descricao = $_POST["mensagem"];
+       
+       
+      
+       
+       print_r ($_POST);
+       
+    }else{
+       exibir("cliente/contato");
     }
 }
