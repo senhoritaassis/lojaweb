@@ -1,4 +1,4 @@
-DROP DATABASE mvcd;
+creDROP DATABASE mvcd;
 CREATE DATABASE mvcd;
 
 USE mvcd;
