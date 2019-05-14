@@ -1,27 +1,25 @@
 <?php
 
-function visualizar (){
-    $prod=array ();
-    $prod ["name"]= "Coleção Harry Potter - 7 volumes";
-    $prod ["desc"]= "Os sete livros da saga criada por J. K. Rowling − que acompanha a jornada do adorado aprendiz de bruxo contra o maléfico Voldemort";
-    $prod ["prec"]= "230,90";
-    
-    exibir("produto/visualizar", $prod);
-            
-}
+require_once "modelo/produtoModelo.php";
+
 function adicionar (){
     if(ehPost())    {
        $nome = $_POST["nome"];
-       $produto = $_POST["produto"];
+       $tipo = $_POST["tipo"];
        $preco = $_POST["preco"];
+       $cor = $_POST["cor"];
        $fabricante = $_POST["fabricante"];
        $descricao = $_POST["descricao"];
+       $quantidade = $_POST["quantidade"];
        
       
        
-       print_r ($_POST);
+    $msg = adicionarProduto($nome, $tipo, $preco, $cor, $fabricante, $descricao, $quantidade);
+        echo $msg;
        
-    }else{
-       exibir("produto/formulario");
+    }else  {
+    
     }
+    
+    exibir("produto/formulario");
 }

@@ -33,3 +33,20 @@ sexo varchar (10) NOT NULL,
 telefone varchar (15) NOT NULL,
 primary key (idCliente)
 );
+
+
+
+
+
+create table produto(
+idProduto integer NOT NULL auto_increment,
+nome varchar (100) NOT NULL,
+tipo  varchar (100) NOT NULL,
+preco varchar (10) NOT NULL,
+cor varchar (15) NOT NULL,
+fabricante varchar (100) NOT NULL,
+descricao varchar (200) NOT NULL,
+quantidade varchar (50) NOT NULL,
+
+primary key (idProduto)
+);
