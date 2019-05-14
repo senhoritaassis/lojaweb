@@ -1,39 +1,25 @@
 <?php
 
-function cadastro (){
-    if(ehPost())    {
-       $nome = $_POST["email"];
-       $produto = $_POST["senha"];
-       $preco = $_POST["cpf"];
-       $fabricante = $_POST["nome"];
-       $descricao = $_POST["datnasci"];
-       $descricao = $_POST["sexo"];
-       $descricao = $_POST["tele"];
-       
-       
-      
-       
-       print_r ($_POST);
-       
-    }else{
-       exibir("cliente/formulario");
-    }
-}
+require_once "modelo/clienteModelo.php";
 
-function contato (){
-    if(ehPost())    {
-       $nome = $_POST["nome"];
-       $produto = $_POST["email"];
-       $preco = $_POST["assunto"];
-       $descricao = $_POST["tele"];
-       $descricao = $_POST["mensagem"];
-       
-       
+function adicionar() {
+    if(ehPost()) {
+        //aqui os dados foram submetidos!
       
-       
-       print_r ($_POST);
-       
-    }else{
-       exibir("cliente/contato");
+        $email = $_POST["email"];
+        $senha = $_POST["senha"];
+        $cpf = $_POST["cpf"];
+        $nome = $_POST["nome"];
+        $nascimento = $_POST["nascimento"];
+        $sexo = $_POST["sexo"];
+        $telefone = $_POST["telefone"];
+        //aqui vai as suas validações dos campos acima
+        
+        $msg = adicionarCliente($email, $senha, $cpf, $nome, $nascimento, $sexo, $telefone);
+        echo $msg;
+    }else {
+        //aqui não existem dados submetidos!
+        
     }
+    exibir("cliente/formulario");
 }

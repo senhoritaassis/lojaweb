@@ -6,12 +6,12 @@
     Senha <input type="password" name="senha"><br><br>
     CPF <input type="tel" mask="___.___.___-__" placeholder="Ex: 555.222.777-16" name="cpf"><br><br>
     Seu nome <input type="text" placeholder="Ex: Livia" name="nome"><br><br>
-    Data de nascimento <input type="ola" mask="__/__/____" placeholder="Ex: 30/07/2002" name="datnasci"><br><br>
+    Data de nascimento <input type="ola" mask="__/__/____" placeholder="Ex: 30/07/2002" name="nascimento"><br><br>
     Sexo:<br><br>
     Feminino <input type="radio" name="sexo" value="feminino">
     Masculino <input type="radio" name="sexo" value="masculino">
     Outros <input type="radio" name="sexo" value="outros"> <br><br>
-    Telefone <input type="tel" mask="(__) _____-____" placeholder="Ex: (99) 99999-9999" name="tele">
+    Telefone <input type="tel" mask="(__) _____-____" placeholder="Ex: (99) 99999-9999" name="telefone">
     <button type="submit">Criar seu cadastro</button><br>
 
 
