@@ -50,3 +50,11 @@ quantidade varchar (50) NOT NULL,
 
 primary key (idProduto)
 );
+
+create table categoria(
+idCategoria integer NOT NULL auto_increment,
+descricao varchar (200) NOT NULL,
+
+
+primary key (idCategoria)
+);

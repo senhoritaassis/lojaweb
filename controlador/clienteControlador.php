@@ -23,3 +23,13 @@ function adicionar() {
     }
     exibir("cliente/formulario");
 }
+
+
+require_once "modelo/clienteModelo.php";
+
+function listarClientes() {
+    $dados = array();
+    $dados["clientes"] = pegarTodosClientes();
+    exibir("cliente/listar", $dados);
+}
+

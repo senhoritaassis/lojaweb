@@ -1,9 +1,9 @@
 <?php
 
-function adicionarProduto ($nome, $tipo, $preco, $cor, $fabricnte, $descricao, $quantidade){
-    $sql = "INSERT INTO cliente (email, senha, cpf, nome, nascimento, sexo, telefone) VALUES ('$nome', '$tipo', '$preco', '$cor', '$fabricante', '$descricao', '$quantidade')";
+function adicionarProduto ($nome, $tipo, $preco, $cor, $fabricante, $descricao, $quantidade){
+    $sql = "INSERT INTO produto (nome, tipo, preco, cor, fabricante, descricao, quantidade) VALUES ('$nome', '$tipo', '$preco', '$cor', '$fabricante', '$descricao', '$quantidade')";
     $resultado = mysqli_query($cnx = conn(), $sql);
-    if (!$resultado) {die('Erro ao cadastrar cliente' . mysqli_error($cnx)); }
-    return 'Cliente cadastrado com sucesso!';
+    if (!$resultado) {die('Erro ao cadastrar produto' . mysqli_error($cnx)); }
+    return 'Produto cadastrado com sucesso!';
 }
 
