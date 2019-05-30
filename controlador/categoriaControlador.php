@@ -16,3 +16,12 @@ function adicionar() {
     }
     exibir("categoria/formulario");
 }
+require_once "modelo/categoriaModelo.php";
+
+function listarCategorias() {
+    $dados = array();
+    $dados["categorias"] = pegarTodasCategorias();
+    exibir("categoria/listar", $dados);
+}
+
+

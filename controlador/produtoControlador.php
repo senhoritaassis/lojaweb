@@ -23,3 +23,12 @@ function adicionar (){
     
     exibir("produto/formulario");
 }
+
+require_once "modelo/produtoModelo.php";
+
+function listarProdutos() {
+    $dados = array();
+    $dados["produtos"] = pegarTodosProdutos();
+    exibir("produto/listar", $dados);
+}
+

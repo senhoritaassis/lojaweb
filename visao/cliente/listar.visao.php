@@ -1,3 +1,4 @@
+
 <h2>Listar Clientes</h2>
 
 <table class="table">
@@ -28,5 +29,4 @@
 </table>
 
 <a href="./cliente/adcionar" class="">Novo cliente</a>
-
 
