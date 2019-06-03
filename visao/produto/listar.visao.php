@@ -4,22 +4,30 @@
     <thead>
         <tr>
 
-            nome, tipo, preco, cor, fabricante, descricao, quantidade
-        <tr>ID</tr>
-        <tr>NOME</tr>
-        <tr>TIPO</tr>
-        <tr>PREÇO</tr>
-        <tr>COR</tr>
-        <tr>FABRICANTE</tr>
-        <tr>DESCRIÇÃO</tr>
-        <tr>QUANTIDADE</tr>
+            nome, tipo, preco, cor, fabricante, descricao, quantidade <br>
+            
+        <th>ID</th>
+        
+        <th>NOME</th>
+        
+        <th>TIPO</th>
+        
+        <th>PREÇO</th>
+        
+        <th>COR</th>
+        
+        <th>FABRICANTE</th>
+        
+        <th>DESCRIÇÃO</th>
+        
+        <th>QUANTIDADE</th>
         </tr>        
     </thead>
     <?PHP foreach ($produtos as $produto): ?>
     
         <tr>
 
-            <td><?= $produto['id'] ?></td>
+            <td><?= $produto['idProduto'] ?></td>
             <td><?= $produto['nome'] ?></td>
             <td><?= $produto['tipo'] ?></td>
             <td><?= $produto['preco'] ?></td>
@@ -31,7 +39,7 @@
     <?php endforeach; ?>
 </table>
 
-<a href="./produto/adcionar" class="">Novo produto</a>
+<a href="./produto/adicionar" class="">Novo produto</a>
 
 
 

@@ -16,6 +16,7 @@ function adicionar (){
        
     $msg = adicionarProduto($nome, $tipo, $preco, $cor, $fabricante, $descricao, $quantidade);
         echo $msg;
+         redirecionar("./produto/listarProdutos");
        
     }else  {
     

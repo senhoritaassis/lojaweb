@@ -5,28 +5,34 @@
     <thead>
         <tr>
 
-        <tr>ID</tr>
-        <tr>EMAIL</tr>
-        <tr>SENHA</tr>
-        <tr>NOME</tr>
-        <tr>DATA DE NASCIMENTO</tr>
-        <tr>SEXO</tr>
-        <tr>TELEFONE</tr>
+        <th>ID</th> 
+        
+        <th>EMAIL</th>
+        
+        <th>SENHA</th>
+        
+        <th>NOME</th>
+        
+        <th>DATA DE NASCIMENTO</th>
+        
+        <th>SEXO</th>
+        
+        <th>TELEFONE</th>
         </tr>        
     </thead>
-    <?PHP foreach ($clientes as $clientes): ?>
+    <?PHP foreach ($clientes as $cliente): ?>
         <tr>
 
-            <td><?= $cliente['id'] ?></td>
+            <td><?= $cliente['idCliente'] ?></td>
             <td><?= $cliente['email'] ?></td>
             <td><?= $cliente['senha'] ?></td>
             <td><?= $cliente['nome'] ?></td>
-            <td><?= $cliente['data_de_nascimento'] ?></td>
+            <td><?= $cliente['nascimento'] ?></td>
             <td><?= $cliente['sexo'] ?></td>
             <td><?= $cliente['telefone'] ?></td>
         </tr>
     <?php endforeach; ?>
 </table>
 
-<a href="./cliente/adcionar" class="">Novo cliente</a>
+<a href="./cliente/adicionar" class="">Novo cliente</a>
 

@@ -5,21 +5,21 @@
     <thead>
         <tr>
 
-        <tr>ID</tr>
-        <tr>DESCRIÇÃO</tr>
+        <th>ID</th>
+        <th>DESCRIÇÃO</th>
         </tr>        
     </thead>
     <?PHP foreach ($categorias as $categoria): ?>
         <tr>
             
-            <td><?= $categoria['id'] ?></td>
+            <td><?= $categoria['idCategoria'] ?></td>
             <td><?= $categoria['descricao'] ?></td>
             
         </tr>
     <?php endforeach; ?>
 </table>
 
-<a href="./categoria/adcionar" class="">Nova categoria</a>
+<a href="./categoria/adicionar" class="">Nova categoria</a>
 
 
 

@@ -17,6 +17,7 @@ function adicionar() {
         
         $msg = adicionarCliente($email, $senha, $cpf, $nome, $nascimento, $sexo, $telefone);
         echo $msg;
+        redirecionar("./cliente/listarClientes");
     }else {
         //aqui não existem dados submetidos!
         
@@ -31,5 +32,14 @@ function listarClientes() {
     $dados = array();
     $dados["clientes"] = pegarTodosClientes();
     exibir("cliente/listar", $dados);
+}
+
+require_once "modelo/clienteModelo.php";
+
+function ver($id) {
+    //passa o $id para o a função pegarUsuarioPorId do modelo
+    $dados["cliente"] = pegarClientePorId($id);
+    //chama o arquivo: visao/cliente/visualizar.visao.php
+    exibir("cliente/visualizar", $dados);
 }
 

@@ -11,6 +11,7 @@ function adicionar() {
 
         $msg = adicionarCategoria($descricao);
         echo $msg;
+         redirecionar("./categoria/listarCategorias");
     } else {
         //aqui não existem dados submetidos!
     }

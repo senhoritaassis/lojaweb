@@ -11,8 +11,19 @@ function pegarTodosClientes() {
     $sql = "SELECT * FROM cliente";
     $resultado = mysqli_query(conn(), $sql);
     $clientes = array();
-    while ($linha - mysqli_fetch_assoc($resultado)) {
+    while ($linha = mysqli_fetch_assoc($resultado)) {
         $clientes[] = $linha;
     }
     return $clientes;
+}
+
+function pegarUsarioPorId($id){
+    //buscar um único cliente pelo $id
+    $sql = "SELECT * FROM cliente WHERE id= $id";
+    //Roda nosso comando
+    $resultado = mysqli_query(conn(), $sql);
+    //Joga o resultado no array $cliente
+    $cliente = mysqli_fetch_assoc($resultado);
+    //retorna o $cliente
+    return $cliente;
 }
