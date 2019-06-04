@@ -30,9 +30,12 @@
             <td><?= $cliente['nascimento'] ?></td>
             <td><?= $cliente['sexo'] ?></td>
             <td><?= $cliente['telefone'] ?></td>
-        </tr>
+            <td><a href="./cliente/ver/<?=$cliente['idCliente']?>">Ver</a></td>
+</tr>
     <?php endforeach; ?>
 </table>
 
-<a href="./cliente/adicionar" class="">Novo cliente</a>
+
+
+
 

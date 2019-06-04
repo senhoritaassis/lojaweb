@@ -16,3 +16,14 @@ function pegarTodosProdutos() {
     }
     return $produto;
 }
+
+function pegarProdutoPorId($id){
+    //buscar um único produto pelo $id
+    $sql = "SELECT * FROM produto WHERE idProduto= $id";
+    //Roda nosso comando
+    $resultado = mysqli_query(conn(), $sql);
+    //Joga o resultado no array $produto
+    $produto = mysqli_fetch_assoc($resultado);
+    //retorna o $produto
+    return $produto;
+}

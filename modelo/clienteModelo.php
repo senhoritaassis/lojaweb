@@ -17,9 +17,9 @@ function pegarTodosClientes() {
     return $clientes;
 }
 
-function pegarUsarioPorId($id){
+function pegarClientePorId($id){
     //buscar um único cliente pelo $id
-    $sql = "SELECT * FROM cliente WHERE id= $id";
+    $sql = "SELECT * FROM cliente WHERE idCliente= $id";
     //Roda nosso comando
     $resultado = mysqli_query(conn(), $sql);
     //Joga o resultado no array $cliente

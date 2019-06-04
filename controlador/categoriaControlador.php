@@ -25,4 +25,14 @@ function listarCategorias() {
     exibir("categoria/listar", $dados);
 }
 
+require_once "modelo/categoriaModelo.php";
+
+function ver($id) {
+    //passa o $id para o a função pegarUsuarioPorId do modelo
+    $dados["categoria"] = pegarCategoriaPorId($id);
+    //chama o arquivo: visao/categoria/visualizar.visao.php
+    exibir("categoria/visualizar", $dados);
+}
+
+
 

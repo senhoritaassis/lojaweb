@@ -1,10 +1,10 @@
-<h2>Listar Clientes</h2>
+<h2>Listar Produtos</h2>
 
 <table class="table">
     <thead>
         <tr>
 
-            nome, tipo, preco, cor, fabricante, descricao, quantidade <br>
+           
             
         <th>ID</th>
         
@@ -35,11 +35,10 @@
             <td><?= $produto['fabricante'] ?></td>
             <td><?= $produto['descricao'] ?></td>
             <td><?= $produto['quantidade'] ?></td>
-        </tr>
+            <td><a href="./produto/ver/<?=$produto['idProduto']?>">Ver</a></td>
+</tr>
     <?php endforeach; ?>
 </table>
-
-<a href="./produto/adicionar" class="">Novo produto</a>
 
 
 
