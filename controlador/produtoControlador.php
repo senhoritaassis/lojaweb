@@ -33,3 +33,12 @@ function listarProdutos() {
     exibir("produto/listar", $dados);
 }
 
+
+
+function ver($id) {
+    //passa o $id para o a função pegarUsuarioPorId do modelo
+    $dados["produto"] = pegarProdutoPorId($id);
+    //chama o arquivo: visao/cliente/visualizar.visao.php
+    exibir("produto/visualizar", $dados);
+}
+

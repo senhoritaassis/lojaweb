@@ -16,3 +16,14 @@ function pegarTodasCategorias() {
     }
     return $categorias;
 }
+
+function pegarCategoriaPorId($id){
+    //buscar um único categoria pelo $id
+    $sql = "SELECT * FROM categoria WHERE idCategoria= $id";
+    //Roda nosso comando
+    $resultado = mysqli_query(conn(), $sql);
+    //Joga o resultado no array $categoria
+    $categoria = mysqli_fetch_assoc($resultado);
+    //retorna o $categoria
+    return $categoria;
+}

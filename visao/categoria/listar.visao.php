@@ -9,17 +9,14 @@
         <th>DESCRIÇÃO</th>
         </tr>        
     </thead>
-    <?PHP foreach ($categorias as $categoria): ?>
+    <?php foreach ($categorias as $categoria): ?>
         <tr>
             
             <td><?= $categoria['idCategoria'] ?></td>
             <td><?= $categoria['descricao'] ?></td>
-            
-        </tr>
+            <td><a href="./categoria/ver/<?=$categoria['idCategoria']?>">Ver</a></td>
+</tr>
     <?php endforeach; ?>
 </table>
-
-<a href="./categoria/adicionar" class="">Nova categoria</a>
-
 
 
