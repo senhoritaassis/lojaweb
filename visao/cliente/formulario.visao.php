@@ -1,4 +1,12 @@
+<?php
+    
+    if(ehPost()){
+        foreach ($errors as $erro){
+            echo "$erro<br>";
+        }
+    }
 
+?>
 <form action="" method="POST">
 
     <h1>Cadastre-se</h1>
@@ -8,7 +16,7 @@
     Seu nome: <input type="text" placeholder="Ex: Livia" name="nome"><br><br>
     Data de nascimento: <input type="ola" mask="__/__/____" placeholder="Ex: 30/07/2002" name="nascimento"><br><br>
     Sexo:<br><br>
-    Feminino <input type="radio" name="sexo" value="feminino">
+    Feminino <input type="radio" name="sexo" value="feminino" checked="cheked">
     Masculino <input type="radio" name="sexo" value="masculino">
     Outros <input type="radio" name="sexo" value="outros"> <br><br>
     Telefone: <input type="tel" mask="(__) _____-____" placeholder="Ex: (99) 99999-9999" name="telefone"> <br><br>

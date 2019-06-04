@@ -1,9 +1,9 @@
-creDROP DATABASE mvcd;
-CREATE DATABASE mvcd;
+creDROP DATABASE lojaweb;
+CREATE DATABASE lojaweb;
 
-USE mvcd;
+USE lojaweb;
 
-CREATE TABLE IF NOT EXISTS `mvcd`.`usuario` (
+CREATE TABLE IF NOT EXISTS `usuario` (
   `id` INT(11) NOT NULL AUTO_INCREMENT,
   `nome` VARCHAR(100) NOT NULL,
   `senha` VARCHAR(100) NOT NULL,
