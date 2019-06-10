@@ -33,6 +33,13 @@ function ver($id) {
     //chama o arquivo: visao/categoria/visualizar.visao.php
     exibir("categoria/visualizar", $dados);
 }
+ 
 
 
+require_once "modelo/categoriaModelo.php";
 
+function deletar($id) {
+    $msg = deletarCategoria($id);
+    redirecionar("categoria/listarCategorias");
+    
+}

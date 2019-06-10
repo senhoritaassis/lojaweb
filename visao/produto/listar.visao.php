@@ -36,6 +36,7 @@
             <td><?= $produto['descricao'] ?></td>
             <td><?= $produto['quantidade'] ?></td>
             <td><a href="./produto/ver/<?=$produto['idProduto']?>">Ver</a></td>
+            <td><a href="./produto/deletar/<?=$produto['idProduto']?>">Deletar</a></td>
 </tr>
     <?php endforeach; ?>
 </table>
