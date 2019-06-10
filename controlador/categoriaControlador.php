@@ -8,6 +8,12 @@ function adicionar() {
 
         $descricao = $_POST["descricao"];
         //aqui vai as suas validações dos campos acima
+        
+       //validação do campo descricao
+  if (strlen(trim($descricao)) == 0) {
+      //caso nao esteja preenchido, verifiar descricao válido
+         $errors[] = "Você deve inserir um descricao";
+  } 
 
         $msg = adicionarCategoria($descricao);
         echo $msg;

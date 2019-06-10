@@ -1,4 +1,12 @@
+<?php
+    
+    if(ehPost()){
+        foreach ($errors as $erro){
+            echo "$erro<br>";
+        }
+    }
 
+?>
 <form action="" method="POST">
     
 
