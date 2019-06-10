@@ -31,6 +31,7 @@
             <td><?= $cliente['sexo'] ?></td>
             <td><?= $cliente['telefone'] ?></td>
             <td><a href="./cliente/ver/<?=$cliente['idCliente']?>">Ver</a></td>
+            <td><a href="./cliente/deletar/<?=$cliente['idCliente']?>">Deletar</a></td>
 </tr>
     <?php endforeach; ?>
 </table>

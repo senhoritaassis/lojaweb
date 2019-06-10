@@ -27,3 +27,13 @@ function pegarCategoriaPorId($id){
     //retorna o $categoria
     return $categoria;
 }
+
+function deletarCategoria($id) {
+    $sql = "DELETE FROM categoria WHERE idCategoria = $id";
+    $resultado = mysqli_query($cnx = conn(), $sql);
+    if(!$resultado) {
+     die('Erro ao deletar categoria' . mysqli_error($cnx));
+    }
+    
+    return 'Categoria deletado com sucesso!';
+}

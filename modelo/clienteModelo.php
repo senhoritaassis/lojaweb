@@ -27,3 +27,13 @@ function pegarClientePorId($id){
     //retorna o $cliente
     return $cliente;
 }
+
+function deletarCliente($id) {
+    $sql = "DELETE FROM cliente WHERE idCliente = $id";
+    $resultado = mysqli_query($cnx = conn(), $sql);
+    if(!$resultado) {
+     die('Erro ao deletar cliente' . mysqli_error($cnx));
+    }
+    
+    return 'Cliente deletado com sucesso!';
+}

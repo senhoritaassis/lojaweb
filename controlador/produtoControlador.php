@@ -99,3 +99,8 @@ function ver($id) {
     exibir("produto/visualizar", $dados);
 }
 
+function deletar($id) {
+    $msg = deletarProduto($id);
+    redirecionar("produto/listarProdutos");
+    
+}

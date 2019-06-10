@@ -91,15 +91,13 @@ function adicionar() {
 }
 
 
-require_once "modelo/clienteModelo.php";
+
 
 function listarClientes() {
     $dados = array();
     $dados["clientes"] = pegarTodosClientes();
     exibir("cliente/listar", $dados);
 }
-
-require_once "modelo/clienteModelo.php";
 
 function ver($id) {
     //passa o $id para o a função pegarUsuarioPorId do modelo
@@ -108,3 +106,10 @@ function ver($id) {
     exibir("cliente/visualizar", $dados);
 }
 
+
+
+function deletar($id) {
+    $msg = deletarCliente($id);
+    redirecionar("cliente/listarClientes");
+    
+}
