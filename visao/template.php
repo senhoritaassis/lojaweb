@@ -8,6 +8,10 @@
     </head>
     <body class="container">
 
+        <a href="./categoria/listarCategorias">Categoria</a>
+        <a href="./produto/listarProdutos">Produto</a>
+        <a href="./cliente/listarClientes">Cliente</a>
+        
         <main class="container">
             <?php require $viewFilePath; ?>
         </main>

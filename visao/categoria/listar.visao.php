@@ -21,3 +21,4 @@
 </table>
 
 
+<a href="./categoria/adicionar" class="btn btn-primary">Nova categoria</a>

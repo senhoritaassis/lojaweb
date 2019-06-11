@@ -1,26 +1,7 @@
-creDROP DATABASE lojaweb;
+DROP DATABASE lojaweb;
 CREATE DATABASE lojaweb;
 
 USE lojaweb;
-
-CREATE TABLE IF NOT EXISTS `usuario` (
-  `id` INT(11) NOT NULL AUTO_INCREMENT,
-  `nome` VARCHAR(100) NOT NULL,
-  `senha` VARCHAR(100) NOT NULL,
-  `email` VARCHAR(100) NOT NULL,
-  `papel` VARCHAR(100) NOT NULL DEFAULT 'usuario'
-  PRIMARY KEY (`id`))
-ENGINE = InnoDB
-AUTO_INCREMENT = 24
-DEFAULT CHARACTER SET = utf8
-
-INSERT INTO `mvcd`.`usuario` (`nome`, `senha`, `email`, `papel`) VALUES ('admin', '123', 'admin@admin', 'admin');
-INSERT INTO `mvcd`.`usuario` (`nome`, `senha`, `email`, `papel`) VALUES ('usuario', '123', 'usuario@usuario', 'usuario');
-
-
-
-
-
 
 create table cliente(
 idCliente integer NOT NULL auto_increment,
@@ -36,25 +17,29 @@ primary key (idCliente)
 
 
 
-
-
-create table produto(
-idProduto integer NOT NULL auto_increment,
-nome varchar (100) NOT NULL,
-tipo  varchar (100) NOT NULL,
-preco varchar (10) NOT NULL,
-cor varchar (15) NOT NULL,
-fabricante varchar (100) NOT NULL,
-descricao varchar (200) NOT NULL,
-quantidade varchar (50) NOT NULL,
-
-primary key (idProduto)
-);
-
 create table categoria(
 idCategoria integer NOT NULL auto_increment,
 descricao varchar (200) NOT NULL,
-
-
 primary key (idCategoria)
 );
+
+CREATE TABLE produto(
+	idproduto INT(11) NOT NULL AUTO_INCREMENT,
+        idcategoria INT(11) NOT NULL,
+	preco DOUBLE NOT NULL,
+	nomeproduto VARCHAR(30) NOT NULL,
+	tipo VARCHAR(60) NOT NULL,
+	cor VARCHAR(60) NOT NULL,
+	fabricante VARCHAR(60) NOT NULL,
+	descricao VARCHAR(60) NOT NULL,
+	tamanho VARCHAR(60) NOT NULL,
+	imagem VARCHAR(60) NOT NULL,
+	quantidade VARCHAR (60) NOT NULL,
+	estoque_minimo INT(11) NOT NULL,
+	estoque_maximo INT(11) NOT NULL,
+	PRIMARY KEY (idproduto),
+        FOREIGN KEY (idcategoria) REFERENCES
+        categoria(idcategoria) 
+	);
+
+
