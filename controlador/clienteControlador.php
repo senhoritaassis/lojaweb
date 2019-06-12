@@ -18,57 +18,57 @@ function adicionar() {
         //validação do campo email
   if (strlen(trim($email)) == 0) {
       //caso nao esteja preenchido, verifiar email válido
-         $errors[] = "Você deve inserir um e-mail.";
+         $errors[] = "Voc� deve inserir um e-mail.";
   } else {
   if (filter_var($email, FILTER_VALIDATE_EMAIL) == false){
       //caso email seja invalido, adicionar o array
-      $errors[] = "Inserir um e-mail válido.";
+      $errors[] = "Inserir um e-mail v�lido.";
     }
   }
   
   //validação do campo senha
   if (strlen(trim($senha)) == 0) {
       //caso nao esteja preenchido, verifiar a senha válida
-         $errors[] = "Você deve inserir uma senha.";
+         $errors[] = "Voc� deve inserir uma senha.";
   } 
   
         //validação do campo cpf
   if (strlen(trim($cpf)) == 0) {
       //caso nao esteja preenchido, verifiar cpf válido
-         $errors[] = "Você deve inserir um cpf.";
+         $errors[] = "Voc� deve inserir um cpf.";
   } else {
   if (filter_var($cpf, FILTER_VALIDATE_INT) == false){
       //caso cpf seja invalido, adicionar o array
-      $errors[] = "Inserir um cpf válido.";
+      $errors[] = "Inserir um cpf v�lido.";
     }
   }
   
         //validação do campo nome
   if (strlen(trim($nome)) == 0) {
       //caso nao esteja preenchido, verifiar nome válido
-         $errors[] = "Você deve inserir um nome.";
+         $errors[] = "Voc� deve inserir um nome.";
   } 
   
         //validação do campo nascimento
   if (strlen(trim($nascimento)) == 0) {
       //caso nao esteja preenchido, verifiar nascimento válido
-         $errors[] = "Você deve inserir uma data de nascimento.";
+         $errors[] = "Voc� deve inserir uma data de nascimento.";
   } 
   
         //validação do campo sexo
   if (strlen(trim($sexo)) == 0) {
       //caso nao esteja preenchido, verifiar sexo válido
-         $errors[] = "Você deve inserir um sexo.";
+         $errors[] = "Voc� deve inserir um sexo.";
   } 
   
   //validação do campo telefone
   if (strlen(trim($telefone)) == 0) {
       //caso nao esteja preenchido, verifiar telefone válido
-         $errors[] = "Você deve inserir um telefone.";
+         $errors[] = "Voc� deve inserir um telefone.";
   } else {
   if (filter_var($telefone, FILTER_VALIDATE_INT) == false){
       //caso cpf seja invalido, adicionar o array
-      $errors[] = "Inserir um telefone válido.";
+      $errors[] = "Inserir um telefone v�lido.";
     }
   }
   

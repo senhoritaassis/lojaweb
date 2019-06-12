@@ -34,7 +34,7 @@ function adicionar (){
       //caso nao esteja preenchido, verifiar preco válido
          $errors[] = "Você deve inserir um preco.";
   } else {
-  if (filter_var(preco, FILTER_VALIDATE_INT) == false){
+  if (filter_var($preco, FILTER_VALIDATE_INT) == false){
       //caso preco seja invalido, adicionar o array
       $errors[] = "Inserir um preco válido.";
     }
@@ -79,7 +79,7 @@ function adicionar (){
       //caso nao esteja preenchido, verifiar quantidade válido
          $errors[] = "Você deve inserir um quantidade";
   } else {
-  if (filter_var(quantidade, FILTER_VALIDATE_INT) == false){
+  if (filter_var($quantidade, FILTER_VALIDATE_INT) == false){
       //caso preco seja invalido, adicionar o array
       $errors[] = "Inserir um quantidade válido.";
     }
