@@ -98,18 +98,18 @@ function adicionar (){
   }
   
   //verificar se existem erros antes de adicionar no banco
-  if (count($errors) > 0){
+ 
+   if (count($errors) > 0){
       $dados = array();
       $dados["errors"] = $errors;
       exibir("produto/formulario", $dados);
   } else {
      //chamar a função do modelo para salvar no banco de dados 
-    $msg = adicionarProduto($nome, $tipo, $preco, $cor, $fabricante, $descricao, $quantidade);
+    $msg = adicionarProduto($nome, $tipo, $preco, $cor, $fabricante, $descricao, $tamanho, $imagem, $categoria, $quantidade, $estoque_minimo, $estoque_maximo);
         echo $msg;
          redirecionar("./produto/listarProdutos");
   }
-    
-    
+
 }
 else {
         //aqui não existem dados submetidos!
