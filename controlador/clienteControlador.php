@@ -18,57 +18,57 @@ function adicionar() {
         //validação do campo email
   if (strlen(trim($email)) == 0) {
       //caso nao esteja preenchido, verifiar email válido
-         $errors[] = "Voc� deve inserir um e-mail.";
+         $errors[] = "Voc� deve inserir um e-mail.";
   } else {
   if (filter_var($email, FILTER_VALIDATE_EMAIL) == false){
       //caso email seja invalido, adicionar o array
-      $errors[] = "Inserir um e-mail v�lido.";
+      $errors[] = "Inserir um e-mail v�lido.";
     }
   }
   
   //validação do campo senha
   if (strlen(trim($senha)) == 0) {
       //caso nao esteja preenchido, verifiar a senha válida
-         $errors[] = "Voc� deve inserir uma senha.";
+         $errors[] = "Voc� deve inserir uma senha.";
   } 
   
         //validação do campo cpf
   if (strlen(trim($cpf)) == 0) {
       //caso nao esteja preenchido, verifiar cpf válido
-         $errors[] = "Voc� deve inserir um cpf.";
+         $errors[] = "Voce deve inserir um cpf.";
   } else {
   if (filter_var($cpf, FILTER_VALIDATE_INT) == false){
       //caso cpf seja invalido, adicionar o array
-      $errors[] = "Inserir um cpf v�lido.";
+      $errors[] = "Inserir um cpf valido.";
     }
   }
   
         //validação do campo nome
   if (strlen(trim($nome)) == 0) {
       //caso nao esteja preenchido, verifiar nome válido
-         $errors[] = "Voc� deve inserir um nome.";
+         $errors[] = "Voce deve inserir um nome.";
   } 
   
         //validação do campo nascimento
   if (strlen(trim($nascimento)) == 0) {
       //caso nao esteja preenchido, verifiar nascimento válido
-         $errors[] = "Voc� deve inserir uma data de nascimento.";
+         $errors[] = "Voce deve inserir uma data de nascimento.";
   } 
   
         //validação do campo sexo
   if (strlen(trim($sexo)) == 0) {
       //caso nao esteja preenchido, verifiar sexo válido
-         $errors[] = "Voc� deve inserir um sexo.";
+         $errors[] = "Voce deve inserir um sexo.";
   } 
   
   //validação do campo telefone
   if (strlen(trim($telefone)) == 0) {
       //caso nao esteja preenchido, verifiar telefone válido
-         $errors[] = "Voc� deve inserir um telefone.";
+         $errors[] = "Voce deve inserir um telefone.";
   } else {
   if (filter_var($telefone, FILTER_VALIDATE_INT) == false){
       //caso cpf seja invalido, adicionar o array
-      $errors[] = "Inserir um telefone v�lido.";
+      $errors[] = "Inserir um telefone valido.";
     }
   }
   
@@ -112,4 +112,24 @@ function deletar($id) {
     $msg = deletarCliente($id);
     redirecionar("cliente/listarClientes");
     
+}
+
+function editar($id) {
+    //verifica se a página foi submetida
+    if (ehPost()) {
+        //pega os dados do formulário
+        $nome = $_POST["nome"];
+        $email = $_POST["email"];
+        $senha = $_POST["senha"];
+        $nascimento = $_POST["nascimento"];
+        $sexo = $_POST["sexo"];
+        $telefone = $_POST["telefone"];
+        //chama o editarCliente do clienteModelo
+        editarCliente($id, $nome, $email, $senha, $nascimento, $sexo, $telefone);
+        redirecionar("cliente/listarClientes");
+    } else {
+        //busca os dados do cliente que será alterado
+        $dados["cliente"] = pegarClientePorId($id);
+        exibir("cliente/formulario", $dados);
+    }
 }
