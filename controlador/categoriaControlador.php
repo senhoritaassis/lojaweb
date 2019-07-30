@@ -49,3 +49,17 @@ function deletar($id) {
     redirecionar("categoria/listarCategorias");
     
 }
+
+require_once "modelo/categoriaModelo.php";
+
+function editar($id) {
+    if (ehPost()) {
+        $id = $_POST["id"];
+        
+        editarCategoria($id);
+        redirecionar("categoria/listar");
+    } else {
+        $dados["categoria"] = pegarCategoriaPorId($id);
+        exibir("categoria/formulario", $dados);
+    }
+}
