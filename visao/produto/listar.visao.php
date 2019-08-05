@@ -50,6 +50,7 @@
             <td><?= $produto['estoque_minimo'] ?></td>
             <td><?= $produto['estoque_maximo'] ?></td>
             <td><a href="./produto/ver/<?=$produto['idProduto']?>">Ver</a></td>
+            <td><a href="./produto/editar/<?=$produto['idProduto']?>">Alterar</a></td>
             <td><a href="./produto/deletar/<?=$produto['idProduto']?>">Deletar</a></td>
             
 </tr>

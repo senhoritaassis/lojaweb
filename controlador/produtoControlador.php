@@ -137,3 +137,30 @@ function deletar($id) {
     redirecionar("produto/listarProdutos");
     
 }
+
+function editar($id) {
+    //verifica se a página foi submetida
+    if (ehPost()) {
+        //pega os dados do formulário
+       $nome = $_POST["nome"];
+       $tipo = $_POST["tipo"];
+       $preco = $_POST["preco"];
+       $cor = $_POST["cor"];
+       $fabricante = $_POST["fabricante"];
+       $descricao = $_POST["descricao"];
+       $tamanho = $_POST["tamanho"];
+       $imagem = $_POST["imagem"];
+       $categoria = $_POST["categoria"];
+       $quantidade = $_POST["quantidade"];
+       $estoque_minimo = $_POST["estoque_minimo"];
+       $estoque_maximo = $_POST["estoque_maximo"];
+        //chama o editarProduto do produtoModelo
+        editarProduto($id, $tipo, $preco, $cor, $fabricante, $descricao, $tamanho, $imagem, $categoria, $quantidade, $estoque_minimo, $estoque_maximo);
+        redirecionar("produto/listarProdutos");
+    } else {
+        //busca os dados do produto que será alterado
+        $dados["produto"] = pegarProdutoPorId($id);
+        exibir("produto/formulario", $dados);
+    }
+}
+

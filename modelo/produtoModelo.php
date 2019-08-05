@@ -37,3 +37,11 @@ function deletarProduto($id) {
     
     return 'Produto deletado com sucesso!';
 }
+
+function editarProduto($id, $tipo, $preco, $cor, $fabricante, $descricao, $tamanho, $imagem, $categoria, $quantidade, $estoque_minimo, $estoque_maximo) {
+    $sql = "UPDATE cliente SET tipo = '$tipo', preco = '$preco', cor = '$cor', fabricante = '$fabricante', descricao = '$descricao', tamanho = '$tamanho', imagem = '$imagem', categoria = '$categoria', quantidade = '$quantidade', estoque_minimo = '$estoque_minimo', estoque_maximo = '$estoque_maximo' WHERE idProduto = $id";
+    $resultado = mysqli_query($cnx = conn(), $sql);
+    if(!$resultado) { die('Erro ao alterar produto' . mysqli_error($cnx));
+    }
+    return 'Produto alterado com sucesso!';
+}
