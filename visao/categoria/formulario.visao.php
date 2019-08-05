@@ -10,9 +10,7 @@
 <form action="" method="POST">
     
 
-	<label>Descrição:</label><input type="text" name="descricao"><br><br>
-       
-
+    Descrição: <input type="text" name="descricao" value="<?=@$categoria['descricao']?>">
         <button type="submit">Cadastrar</button>     
 		
 </form>

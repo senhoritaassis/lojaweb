@@ -38,10 +38,10 @@ function deletarCategoria($id) {
     return 'Categoria deletado com sucesso!';
 }
 
-function editarCategoria($id) {
-    $sql = "UPDATE categoria SET descricao = '$descricao' WHERE id = $id";
+function editarCategoria($id, $descricao) {
+    $sql = "UPDATE categoria SET descricao = '$descricao' WHERE idCategoria = $id";
     $resultado = mysqli_query($cnx = conn(), $sql);
-    if(!$resultado) { die('Erro ao alterar categoria' . mysqli_error($cnx)); }
-    return 'Categoria alterado com secesso!';
-    
+    if(!$resultado) { die('Erro ao alterar categoria' . mysqli_error($cnx));
+    }
+    return 'Categoria alterado com sucesso!';
 }

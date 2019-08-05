@@ -53,12 +53,16 @@ function deletar($id) {
 require_once "modelo/categoriaModelo.php";
 
 function editar($id) {
+    //verifica se a página foi submetida
     if (ehPost()) {
-        $id = $_POST["id"];
-        
-        editarCategoria($id);
-        redirecionar("categoria/listar");
+        //pega os dados do formulário
+        $descricao = $_POST["descricao"];
+      
+        //chama o editarCliente do clienteModelo
+        editarCategoria($id, $descricao);
+        redirecionar("categoria/listarCategorias");
     } else {
+        //busca os dados do cliente que será alterado
         $dados["categoria"] = pegarCategoriaPorId($id);
         exibir("categoria/formulario", $dados);
     }
