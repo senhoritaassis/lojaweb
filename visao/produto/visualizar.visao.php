@@ -3,7 +3,7 @@
 <h2> Ver detalhes do produto</h2>
 <p>Id: <?=$produto['idProduto']?></p>
 <p>Preco: <?=$produto['preco']?></p>
-<p>Nome: <?=$produto['nome']?></p>
+<p>Nome: <?=$produto['nomeproduto']?></p>
 <p>Tipo: <?=$produto['tipo']?></p>
 <p>Cor: <?=$produto['cor']?></p>
 <p>Fabricante: <?=$produto['fabricante']?></p>

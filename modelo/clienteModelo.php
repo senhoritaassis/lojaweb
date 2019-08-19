@@ -45,5 +45,3 @@ function editarCliente($id, $nome, $email, $senha, $nascimento, $sexo, $telefone
     }
     return 'Cliente alterado com sucesso!';
 }
-
-
