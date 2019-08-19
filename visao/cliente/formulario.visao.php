@@ -17,8 +17,8 @@
     Data de nascimento: <input type="ola" mask="__/__/____" placeholder="Ex: 30/07/2002" name="nascimento" value="<?=@$cliente['nascimento']?>"><br><br>
     Sexo:<br><br>
     Feminino <input type="radio" name="sexo" value="<?=@$cliente['feminino']?>" checked="cheked">
-    Masculino <input type="radio" name="sexo" value="<?=@$cliente['masculino']?>"><br><br>
-    
+    Masculino <input type="radio" name="sexo" value="<?=@$cliente['masculino']?>">
+    Outros <input type="radio" name="sexo" value="<?=@$cliente['outros']?>"> <br><br>
     Telefone: <input type="tel" mask="(__) _____-____" placeholder="Ex: (99) 99999-9999" name="telefone" value="<?=@$cliente['telefone']?>"> <br><br>
     <button type="submit">Criar seu cadastro</button><br>
 

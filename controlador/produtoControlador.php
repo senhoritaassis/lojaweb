@@ -1,10 +1,11 @@
 <?php
 
 require_once "modelo/produtoModelo.php";
+require_once "modelo/categoriaModelo.php";
 
 function adicionar (){
     if(ehPost())    {
-       $nome = $_POST["nome"];
+       $nomeproduto = $_POST["nomeproduto"];
        $tipo = $_POST["tipo"];
        $preco = $_POST["preco"];
        $cor = $_POST["cor"];
@@ -12,15 +13,15 @@ function adicionar (){
        $descricao = $_POST["descricao"];
        $tamanho = $_POST["tamanho"];
        $imagem = $_POST["imagem"];
-       $categoria = $_POST["categoria"];
+       $categoria = $_POST["idcategoria"];
        $quantidade = $_POST["quantidade"];
        $estoque_minimo = $_POST["estoque_minimo"];
        $estoque_maximo = $_POST["estoque_maximo"];
        
      //validação do campo nome
-  if (strlen(trim($nome)) == 0) {
+  if (strlen(trim($nomeproduto)) == 0) {
       //caso nao esteja preenchido, verifiar nome válido
-         $errors[] = "Você deve inserir um nome.";
+         $errors[] = "Você deve inserir um nome do produto.";
   } 
   
    //validação do campo tipo
@@ -98,22 +99,24 @@ function adicionar (){
   }
   
   //verificar se existem erros antes de adicionar no banco
- 
-   if (count($errors) > 0){
-      $dados = array();
+   $dados = array();
+   if (count($errors) > 0){     
       $dados["errors"] = $errors;
-      exibir("produto/formulario", $dados);
+      
   } else {
      //chamar a função do modelo para salvar no banco de dados 
-    $msg = adicionarProduto($nome, $tipo, $preco, $cor, $fabricante, $descricao, $tamanho, $imagem, $categoria, $quantidade, $estoque_minimo, $estoque_maximo);
-        echo $msg;
-         redirecionar("./produto/listarProdutos");
+    $msg = adicionarProduto($nomeproduto, $tipo, $preco, $cor, $fabricante, $descricao, $tamanho, $imagem, $categoria, $quantidade, $estoque_minimo, $estoque_maximo);
+    echo $msg;
+    redirecionar("./produto/listarProdutos");
   }
+  $dados["categorias"] = pegarTodasCategorias();
+  exibir("produto/formulario", $dados);
 
 }
 else {
         //aqui não existem dados submetidos!
-         exibir("produto/formulario");
+    $dados["categorias"] = pegarTodasCategorias();
+    exibir("produto/formulario", $dados);
     }
 }
 
@@ -142,7 +145,7 @@ function editar($id) {
     //verifica se a página foi submetida
     if (ehPost()) {
         //pega os dados do formulário
-       $nome = $_POST["nome"];
+       $nomeproduto = $_POST["nomeproduto"];
        $tipo = $_POST["tipo"];
        $preco = $_POST["preco"];
        $cor = $_POST["cor"];
@@ -150,16 +153,17 @@ function editar($id) {
        $descricao = $_POST["descricao"];
        $tamanho = $_POST["tamanho"];
        $imagem = $_POST["imagem"];
-       $categoria = $_POST["categoria"];
+       $categoria = $_POST["idcategoria"];
        $quantidade = $_POST["quantidade"];
        $estoque_minimo = $_POST["estoque_minimo"];
        $estoque_maximo = $_POST["estoque_maximo"];
         //chama o editarProduto do produtoModelo
-        editarProduto($id, $tipo, $preco, $cor, $fabricante, $descricao, $tamanho, $imagem, $categoria, $quantidade, $estoque_minimo, $estoque_maximo);
+        editarProduto($id, $nomeproduto, $tipo, $preco, $cor, $fabricante, $descricao, $tamanho, $imagem, $categoria, $quantidade, $estoque_minimo, $estoque_maximo);
         redirecionar("produto/listarProdutos");
     } else {
         //busca os dados do produto que será alterado
         $dados["produto"] = pegarProdutoPorId($id);
+        $dados["categorias"] = pegarTodasCategorias();
         exibir("produto/formulario", $dados);
     }
 }

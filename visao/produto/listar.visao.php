@@ -36,22 +36,22 @@
     
         <tr>
 
-            <td><?= $produto['idProduto'] ?></td>
+            <td><?= $produto['idproduto'] ?></td>
             <td><?= $produto['preco'] ?></td>
-            <td><?= $produto['nome'] ?></td>
+            <td><?= $produto['nomeproduto'] ?></td>
             <td><?= $produto['tipo'] ?></td>
             <td><?= $produto['cor'] ?></td>
             <td><?= $produto['fabricante'] ?></td>
             <td><?= $produto['descricao'] ?></td>
             <td><?= $produto['tamanho'] ?></td>
             <td><?= $produto['imagem'] ?></td>
-            <td><?= $produto['categoria'] ?></td>
+            <td><?= $produto['idcategoria'] ?></td>
             <td><?= $produto['quantidade'] ?></td>
             <td><?= $produto['estoque_minimo'] ?></td>
             <td><?= $produto['estoque_maximo'] ?></td>
-            <td><a href="./produto/ver/<?=$produto['idProduto']?>">Ver</a></td>
-            <td><a href="./produto/editar/<?=$produto['idProduto']?>">Alterar</a></td>
-            <td><a href="./produto/deletar/<?=$produto['idProduto']?>">Deletar</a></td>
+            <td><a href="./produto/ver/<?=$produto['idproduto']?>">Ver</a></td>
+            <td><a href="./produto/editar/<?=$produto['idproduto']?>">Alterar</a></td>
+            <td><a href="./produto/deletar/<?=$produto['idproduto']?>">Deletar</a></td>
             
 </tr>
     <?php endforeach; ?>

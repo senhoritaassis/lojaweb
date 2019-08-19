@@ -1,7 +1,7 @@
 <?php
 
-function adicionarProduto ($nome, $tipo, $preco, $cor, $fabricante, $descricao, $tamanho, $imagem, $categoria, $quantidade, $estoque_minimo, $estoque_maximo){
-    $sql = "INSERT INTO produto (nome, tipo, preco, cor, fabricante, descricao, tamanho, imagem, categoria, quantidade, estoque_minimo, estoque_maximo) VALUES ('$nome', '$tipo', '$preco', '$cor', '$fabricante', '$descricao', '$tamanho', '$imagem', '$categoria', '$quantidade', '$estoque_minimo', '$estoque_maximo')";
+function adicionarProduto ($nomeproduto, $tipo, $preco, $cor, $fabricante, $descricao, $tamanho, $imagem, $categoria, $quantidade, $estoque_minimo, $estoque_maximo){
+    $sql = "INSERT INTO produto (nomeproduto, tipo, preco, cor, fabricante, descricao, tamanho, imagem, idcategoria, quantidade, estoque_minimo, estoque_maximo) VALUES ('$nomeproduto', '$tipo', '$preco', '$cor', '$fabricante', '$descricao', '$tamanho', '$imagem', '$categoria', '$quantidade', '$estoque_minimo', '$estoque_maximo')";
     $resultado = mysqli_query($cnx = conn(), $sql);
     if (!$resultado) {die('Erro ao cadastrar produto' . mysqli_error($cnx)); }
     return 'Produto cadastrado com sucesso!';
@@ -38,8 +38,8 @@ function deletarProduto($id) {
     return 'Produto deletado com sucesso!';
 }
 
-function editarProduto($id, $tipo, $preco, $cor, $fabricante, $descricao, $tamanho, $imagem, $categoria, $quantidade, $estoque_minimo, $estoque_maximo) {
-    $sql = "UPDATE cliente SET tipo = '$tipo', preco = '$preco', cor = '$cor', fabricante = '$fabricante', descricao = '$descricao', tamanho = '$tamanho', imagem = '$imagem', categoria = '$categoria', quantidade = '$quantidade', estoque_minimo = '$estoque_minimo', estoque_maximo = '$estoque_maximo' WHERE idProduto = $id";
+function editarProduto($id, $nomeproduto, $tipo, $preco, $cor, $fabricante, $descricao, $tamanho, $imagem, $categoria, $quantidade, $estoque_minimo, $estoque_maximo) {
+    $sql = "UPDATE produto SET nomeproduto = '$nomeproduto', tipo = '$tipo', preco = '$preco', cor = '$cor', fabricante = '$fabricante', descricao = '$descricao', tamanho = '$tamanho', imagem = '$imagem', idcategoria = '$categoria', quantidade = '$quantidade', estoque_minimo = '$estoque_minimo', estoque_maximo = '$estoque_maximo' WHERE idProduto = $id";
     $resultado = mysqli_query($cnx = conn(), $sql);
     if(!$resultado) { die('Erro ao alterar produto' . mysqli_error($cnx));
     }

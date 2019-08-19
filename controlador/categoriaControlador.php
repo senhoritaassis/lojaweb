@@ -1,29 +1,29 @@
 <?php
 
 require_once "modelo/categoriaModelo.php";
+require_once "modelo/categoriaModelo.php";
 
 function adicionar() {
     if (ehPost()) {
         //aqui os dados foram submetidos!
 
         $descricao = $_POST["descricao"];
-        //aqui vai as suas validações dos campos acima
+        //aqui vai as suas validações dos campos acima    
         
        //validação do campo descricao
-  if (strlen(trim($descricao)) == 0) {
-      //caso nao esteja preenchido, verifiar descricao válido
-         $errors[] = "Você deve inserir um descricao";
-  } 
-
+        if (strlen(trim($descricao)) == 0) {
+            //caso nao esteja preenchido, verifiar descricao válido
+               $errors[] = "Você deve inserir um descricao";
+        }
         $msg = adicionarCategoria($descricao);
-        echo $msg;
-         redirecionar("./categoria/listarCategorias");
+        //echo $msg;
+        redirecionar("./categoria/listarCategorias");
     } else {
         //aqui não existem dados submetidos!
     }
     exibir("categoria/formulario");
 }
-require_once "modelo/categoriaModelo.php";
+
 
 function listarCategorias() {
     $dados = array();
@@ -31,7 +31,6 @@ function listarCategorias() {
     exibir("categoria/listar", $dados);
 }
 
-require_once "modelo/categoriaModelo.php";
 
 function ver($id) {
     //passa o $id para o a função pegarUsuarioPorId do modelo
@@ -41,16 +40,11 @@ function ver($id) {
 }
  
 
-
-require_once "modelo/categoriaModelo.php";
-
 function deletar($id) {
     $msg = deletarCategoria($id);
     redirecionar("categoria/listarCategorias");
     
 }
-
-require_once "modelo/categoriaModelo.php";
 
 function editar($id) {
     //verifica se a página foi submetida
@@ -67,3 +61,4 @@ function editar($id) {
         exibir("categoria/formulario", $dados);
     }
 }
+
