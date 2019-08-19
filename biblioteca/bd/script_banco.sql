@@ -24,22 +24,19 @@ primary key (idCategoria)
 );
 
 CREATE TABLE produto(
-	idproduto INT(11) NOT NULL AUTO_INCREMENT,
-        idcategoria INT(11) NOT NULL,
-	preco DOUBLE NOT NULL,
-	nomeproduto VARCHAR(30) NOT NULL,
-	tipo VARCHAR(60) NOT NULL,
-	cor VARCHAR(60) NOT NULL,
-	fabricante VARCHAR(60) NOT NULL,
-	descricao VARCHAR(60) NOT NULL,
-	tamanho VARCHAR(60) NOT NULL,
-	imagem VARCHAR(60) NOT NULL,
-	quantidade VARCHAR (60) NOT NULL,
-	estoque_minimo INT(11) NOT NULL,
-	estoque_maximo INT(11) NOT NULL,
-	PRIMARY KEY (idproduto),
-        FOREIGN KEY (idcategoria) REFERENCES
-        categoria(idcategoria) 
-	);
-
-
+    idproduto BIGINT NOT NULL AUTO_INCREMENT,
+    idcategoria BIGINT NOT NULL,
+    preco VARCHAR(10) NOT NULL,
+    nomeproduto VARCHAR(100) NOT NULL,
+    tipo VARCHAR(60) NOT NULL,
+    cor VARCHAR(10) NOT NULL,
+    fabricante VARCHAR(100) NOT NULL,
+    descricao VARCHAR(500) NOT NULL,
+    tamanho VARCHAR(20) NOT NULL,
+    imagem VARCHAR(200) NOT NULL,
+    quantidade VARCHAR(60) NOT NULL,
+    estoque_minimo INT(8) NOT NULL,
+    estoque_maximo INT(8) NOT NULL,
+    PRIMARY KEY (idproduto),
+    FOREIGN KEY (idcategoria) REFERENCES categoria(idcategoria) ON DELETE CASCADE ON UPDATE CASCADE
+);

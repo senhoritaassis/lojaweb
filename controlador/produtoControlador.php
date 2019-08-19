@@ -34,10 +34,10 @@ function adicionar (){
       //caso nao esteja preenchido, verifiar preco válido
          $errors[] = "Você deve inserir um preco.";
   } else {
-  if (filter_var($preco, FILTER_VALIDATE_INT) == false){
+  //if (filter_var($preco, FILTER_VALIDATE_INT) == false){
       //caso preco seja invalido, adicionar o array
-      $errors[] = "Inserir um preco válido.";
-    }
+      //$errors[] = "Inserir um preco válido.";
+    //}
   }
   
   //validação do campo cor

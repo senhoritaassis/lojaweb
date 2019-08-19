@@ -16,8 +16,13 @@
     Seu nome: <input type="text" placeholder="Ex: Livia" name="nome" value="<?=@$cliente['nome']?>"><br><br>
     Data de nascimento: <input type="ola" mask="__/__/____" placeholder="Ex: 30/07/2002" name="nascimento" value="<?=@$cliente['nascimento']?>"><br><br>
     Sexo:<br><br>
-    Feminino <input type="radio" name="sexo" value="<?=@$cliente['feminino']?>" checked="cheked">
-    Masculino <input type="radio" name="sexo" value="<?=@$cliente['masculino']?>"><br><br>
+    <?php if(isset($cliente['sexo']) && $cliente['sexo']=="F"):?>
+    Feminino <input type="radio" name="sexo" value="F" checked="cheked">
+    Masculino <input type="radio" name="sexo" value="M"><br><br>
+    <?php else:?>
+    Feminino <input type="radio" name="sexo" value="F">
+    Masculino <input type="radio" name="sexo" value="M" checked="cheked"><br><br>
+    <?php endif;?>
     
     Telefone: <input type="tel" mask="(__) _____-____" placeholder="Ex: (99) 99999-9999" name="telefone" value="<?=@$cliente['telefone']?>"> <br><br>
     <button type="submit">Criar seu cadastro</button><br>
