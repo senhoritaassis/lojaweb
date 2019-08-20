@@ -1,8 +1,6 @@
-
-
 <?php
-    
-    if(ehPost()){
+
+ if(ehPost()){
         foreach ($errors as $erro){
             echo "$erro<br>";
         }
@@ -13,12 +11,11 @@
 
     
     <label>Descrição:</label><input type="text" name="descricao" value="<?=@$cupom['descricao']?>"><br><br>
-    <label>Desconto:</label><input type="text" name="desconto" value="<?=@$cupom['desconto']?>"><br><br>
+  
     
    
-    <button type="submit">Cadastrar cupom</button><br>
+    <button type="submit">Cadastrar Forma de Pagamento</button><br>
 
 
 </form>
-
 

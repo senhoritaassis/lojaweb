@@ -5,25 +5,27 @@
         <meta http-equiv="x-ua-compatible" content="ie=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Foundation for Sites</title>
+        <base href="<?= URL_BASE ?>"><!--Esta instrução é super importante e não deve ser mudada!-->
+
         <link rel="stylesheet" href="css/foundation.css">
         <link rel="stylesheet" href="css/app.css">
         <link rel="stylesheet" href="css1.css">
         <title></title>
     <body>
         <div id="caixa1">
-            <a href="index.html"><img id="logo1" src="publico/imagem/logo1.jpg"></a>
+            <a href="index.html"><img id="logo1" src="./publico/imagem/logo1.jpg"></a>
 
 
             <div id="search" class="grid-x grid-padding-x">
                 <div class="large-12 cell">
-                    <img id="pesq"src="principal/pesq.png">
+                    <img id="pesq"src="./publico/imagem/pesq.png">
                     <input id="input1" type="text" placeholder="Search" />
                 </div>
             </div>
 
-            <a href="login.html"><img id="user"src="principal/user.png"></a>
-            <a href="carrinho2.html"><img id="car"src ="principal/car.png"></a>
-            <a href="admin.html"><img id="edit" src="principal/edit.png"></a>
+            <a href="login.html"><img id="user"src="./publico/imagem/user.png"></a>
+            <a href="carrinho2.html"><img id="car"src ="./publico/imagem/car.png"></a>
+            <a href="admin.html"><img id="edit" src="./publico/imagem/edit.png"></a>
         </div>
 
         <div class="cor">
@@ -56,10 +58,10 @@
 
         <div id="rodape" class="grid-x">
             <div class="cell medium-6 large-10">
-                <a href="index.html"><img id="logo1" src="principal/logo1.jpg"></div></a>
+                <a href="index.html"><img id="logo1" src="./publico/imagem/logo1.jpg"></div></a>
                 <div class="cell medium-6 large-2">		
-                    <a href="https://www.facebook.com/"><img id="fb"src="principal/fb.png"></a>
-                    <a href="https://twitter.com/"><img id="tt"src="principal/tt.png"></a>
+                    <a href="https://www.facebook.com/"><img id="fb"src="./publico/imagem/fb.png"></a>
+                    <a href="https://twitter.com/"><img id="tt"src="./publico/imagem/tt.png"></a>
                 </div>	
             </div>
 

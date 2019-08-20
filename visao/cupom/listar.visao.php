@@ -23,8 +23,8 @@
             <td><?= $cupom['descricao'] ?></td>
             <td><?= $cupom['desconto'] ?></td>
             <td><a href="./cupom/ver/<?=$cupom['idcupom']?>">Ver</a></td>
-            <td><a href="./cupom/editar/<?=$produto['idcupom']?>">Alterar</a></td>
-            <td><a href="./cupom/deletar/<?=$produto['idcupom']?>">Deletar</a></td>
+            <td><a href="./cupom/editar/<?=$cupom['idcupom']?>">Alterar</a></td>
+            <td><a href="./cupom/deletar/<?=$cupom['idcupom']?>">Deletar</a></td>
             
 </tr>
     <?php endforeach; ?>
