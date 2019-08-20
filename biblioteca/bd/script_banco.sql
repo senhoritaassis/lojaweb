@@ -87,23 +87,6 @@ create table pedido (
 
 
 
-CREATE TABLE produtos(
-	idproduto INT(11) NOT NULL AUTO_INCREMENT,
-	preco DOUBLE NOT NULL,
-	nomeproduto VARCHAR(30) NOT NULL,
-	tipo VARCHAR(60) NOT NULL,
-	cor VARCHAR(60) NOT NULL,
-	fabricante VARCHAR(60) NOT NULL,
-	descricao VARCHAR(60) NOT NULL,
-	tamanho VARCHAR(60) NOT NULL,
-	imagem VARCHAR(60) NOT NULL,
-	categoria VARCHAR(60) NOT NULL,
-	quantidade VARCHAR (60) NOT NULL,
-	estoque_minimo INT(11) NOT NULL,
-	estoque_maximo INT(11) NOT NULL,
-	PRIMARY KEY (idproduto)
-	);
-
 CREATE TABLE log_produto(
 	ID_LOG INT(11) NOT NULL  AUTO_INCREMENT,
 	TABELA VARCHAR(45) NOT NULL,
@@ -130,3 +113,10 @@ CREATE TABLE estoque(
 	PRIMARY KEY (idestoque),
 	FOREIGN KEY (id_produto) REFERENCES produtos(idproduto) ON UPDATE CASCADE ON DELETE CASCADE
 	);
+
+CREATE TABLE cupom(
+        idcupom int(11) not null auto_increment,
+        descricao varchar (60) NOT NULL,
+        desconto INT(11) NOT NULL,
+        primary key (idcupom)
+);
