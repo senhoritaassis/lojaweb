@@ -17,16 +17,17 @@ function adicionar() {
          if (strlen(trim($desconto)) == 0) {
       //caso nao esteja preenchido, verifiar desconto válido
          $errors[] = "Você deve inserir uma desconto.";
-  } else {
-  if (filter_var($desconto, FILTER_VALIDATE_INT) == false){
-      //caso desconto seja invalido, adicionar o array
-      $errors[] = "Inserir um desconto válido.";
-    }
-  }
+        } else {
+            if (filter_var($desconto, FILTER_VALIDATE_INT) == false){
+           //caso desconto seja invalido, adicionar o array
+           $errors[] = "Inserir um desconto válido.";
+            }
+        }
 //verificar se existem erros antes de adicionar no banco
    $dados = array();
    if (count($errors) > 0){     
       $dados["errors"] = $errors;
+      redirecionar("cupom/adicionar",$dados);
       
   } else {
      //chamar a função do modelo para salvar no banco de dados 

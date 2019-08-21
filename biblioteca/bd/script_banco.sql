@@ -56,7 +56,7 @@ create table usuario (
 create table endereco (
 	idendereco int(11) not null auto_increment,
 	idusuario int(11) not null,
-	logadouro varchar(60) not null,
+	logradouro varchar(60) not null,
 	numero varchar(7) not null,
 	complemento varchar(60) not null,
 	bairro varchar(60) not null,

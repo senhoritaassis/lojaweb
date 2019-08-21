@@ -2,7 +2,7 @@
 
 <?php
     
-    if(ehPost()){
+    if(isset($errors) && !empty($erros)){
         foreach ($errors as $erro){
             echo "$erro<br>";
         }

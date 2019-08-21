@@ -1,12 +1,11 @@
 <?php
 
 require_once "modelo/enderecoModelo.php";
-require_once "modelo/clienteModelo.php";
+
 
 function adicionar() {
     if (ehPost()) {
-        echo "cliquei no formulario!";
-        $logadouro = $_POST["logadouro"];
+        $logradouro = $_POST["logradouro"];
         $numero = $_POST["numero"];
         $complemento = $_POST["complemento"];
         $bairro = $_POST["bairro"];
@@ -14,9 +13,9 @@ function adicionar() {
         $cep = $_POST["cep"];
 
 //validação do campo logadouro
-        if (strlen(trim($logadouro)) == 0) {
+        if (strlen(trim($logradouro)) == 0) {
 //caso nao esteja preenchido, verifiar logadouro válido
-            $errors[] = "Você deve inserir um logadouro.";
+            $errors[] = "Você deve inserir um logradouro.";
         }
 
 //validação do campo numero
@@ -68,8 +67,7 @@ function adicionar() {
 
     function editar($id) {
         if (ehPost()) {
-            echo "cliquei no formulario!";
-            $logadouro = $_POST["logadouro"];
+            $logradouro = $_POST["logradouro"];
             $numero = $_POST["numero"];
             $complemento = $_POST["complemento"];
             $bairro = $_POST["bairro"];
@@ -85,4 +83,3 @@ function adicionar() {
 
 }
 
-?>
