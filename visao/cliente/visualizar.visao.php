@@ -6,6 +6,9 @@
 <p>Data de Nascimento: <?=$cliente['nascimento']?></p>
 <p>Telefone: <?=$cliente['telefone']?></p>
 
-
+<?php
+require_once 'visao/endereco/listar.visao.php';
+?>
+    
 
 

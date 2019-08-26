@@ -93,15 +93,16 @@ function adicionar() {
 
 
 
-function listarClientes() {
+function listarUusarios() {
     $dados = array();
-    $dados["clientes"] = pegarTodosClientes();
+    $dados["clientes"] = pegarTodosUsuarios();
     exibir("cliente/listar", $dados);
 }
 
-function ver($id) {
+function ver($idUsuario) {
     //passa o $id para o a função pegarUsuarioPorId do modelo
-    $dados["cliente"] = pegarClientePorId($id);
+    $dados["cliente"] = pegarUsuarioPorId($idUsuario);
+    $dados["endereco"] = pegarEnderecoPorUsuario($idUsuario);
     //chama o arquivo: visao/cliente/visualizar.visao.php
     exibir("cliente/visualizar", $dados);
 }
@@ -109,8 +110,8 @@ function ver($id) {
 
 
 function deletar($id) {
-    $msg = deletarCliente($id);
-    redirecionar("cliente/listarClientes");
+    $msg = deletarUsuario($id);
+    redirecionar("cliente/listarUsuarios");
     
 }
 
@@ -118,14 +119,14 @@ function editar($id) {
     //verifica se a página foi submetida
     if (ehPost()) {
         //pega os dados do formulário
-        $nome = $_POST["nome"];
+        $nomeUsuario = $_POST["nomeUsuario"];
         $email = $_POST["email"];
         $senha = $_POST["senha"];
         $nascimento = $_POST["nascimento"];
         $sexo = $_POST["sexo"];
         $telefone = $_POST["telefone"];
         //chama o editarCliente do clienteModelo
-        editarCliente($id, $nome, $email, $senha, $nascimento, $sexo, $telefone);
+        editarCliente($id, $nomeUsuario, $email, $senha, $nascimento, $sexo, $telefone);
         redirecionar("cliente/listarClientes");
     } else {
         //busca os dados do cliente que será alterado

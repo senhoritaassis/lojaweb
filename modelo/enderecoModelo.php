@@ -1,7 +1,7 @@
 <?php
 
-function adicionarEndereco ($logradouro, $numero, $complemento, $bairro, $cidade, $cep){
-    $sql = "INSERT INTO endereco (logradouro, numero, complemento, bairro, cidade, cep ) VALUES ('$descricao', '$$logradouro', '$numero', '$complemento', '$bairro', '$cidade', '$cep')";
+function adicionarEndereco ($logradouro, $numero, $complemento, $bairro, $cidade, $cep, $idCliente){
+    $sql = "INSERT INTO endereco (logradouro, numero, complemento, bairro, cidade, cep, id ) VALUES ('$descricao', '$$logradouro', '$numero', '$complemento', '$bairro', '$cidade', '$cep', '$idCliente',)";
     $resultado = mysqli_query($cnx = conn(), $sql);
     if (!$resultado) {die('Erro ao cadastrar o endereco' . mysqli_error($cnx)); }
     return 'Endereco cadastrado com sucesso!';

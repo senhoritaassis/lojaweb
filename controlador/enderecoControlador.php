@@ -3,7 +3,7 @@
 require_once "modelo/enderecoModelo.php";
 
 
-function adicionar() {
+function adicionar($idCliente) {
     if (ehPost()) {
         $logradouro = $_POST["logradouro"];
         $numero = $_POST["numero"];
