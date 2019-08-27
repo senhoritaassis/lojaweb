@@ -28,4 +28,4 @@
 </table>
 
 
-<a href="./FormPagamento/adicionar" class="btn btn-primary">Nova Forma de Pagemento</a>
+<a href="./FormaPagamento/adicionar" class="btn btn-primary">Nova Forma de Pagemento</a>
