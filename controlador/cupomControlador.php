@@ -65,7 +65,7 @@ redirecionar("cupom/listarCupons");
 
 function editar ($id) {
     if (ehPost()) {
-        echo "cliquei no formulario!";
+        
         $descricao = $_POST["descricao"];
         $desconto = $_POST["desconto"];
         editarCupom($id, $descricao, $desconto);

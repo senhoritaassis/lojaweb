@@ -108,8 +108,8 @@ function ver($idCliente){
 
 
 function deletar($id) {
-    $msg = deletarUsuario($id);
-    redirecionar("cliente/listarUsuarios");
+    $msg = deletarCliente($id);
+    redirecionar("cliente/listarClientes");
     
 }
 
@@ -117,14 +117,14 @@ function editar($id) {
     //verifica se a página foi submetida
     if (ehPost()) {
         //pega os dados do formulário
-        $nomeUsuario = $_POST["nomeUsuario"];
+        $nome = $_POST["nome"];
         $email = $_POST["email"];
         $senha = $_POST["senha"];
         $nascimento = $_POST["nascimento"];
         $sexo = $_POST["sexo"];
         $telefone = $_POST["telefone"];
         //chama o editarCliente do clienteModelo
-        editarCliente($id, $nomeUsuario, $email, $senha, $nascimento, $sexo, $telefone);
+        editarCliente($id, $nome, $email, $senha, $nascimento, $sexo, $telefone);
         redirecionar("cliente/listarClientes");
     } else {
         //busca os dados do cliente que será alterado
