@@ -1,6 +1,7 @@
 <?php
 
 require_once "modelo/clienteModelo.php";
+require_once "modelo/enderecoModelo.php";
 
 function adicionar() {
     if(ehPost()) {
@@ -93,25 +94,22 @@ function adicionar() {
 
 
 
-function listarUusarios() {
+function listarClientes() {
     $dados = array();
-    $dados["clientes"] = pegarTodosUsuarios();
+    $dados["clientes"] = pegarTodosClientes();
     exibir("cliente/listar", $dados);
 }
 
-function ver($idUsuario) {
-    //passa o $id para o a função pegarUsuarioPorId do modelo
-    $dados["cliente"] = pegarUsuarioPorId($idUsuario);
-    $dados["endereco"] = pegarEnderecoPorUsuario($idUsuario);
-    //chama o arquivo: visao/cliente/visualizar.visao.php
-    exibir("cliente/visualizar", $dados);
+function ver($idCliente){
+    $dados ["cliente"] = pegarClientePorId($idCliente);
+    $dados ["enderecos"] = pegarEnderecosPorUsuario($idCliente);
+    exibir ("cliente/visualizar", $dados);
 }
 
 
-
 function deletar($id) {
-    $msg = deletarUsuario($id);
-    redirecionar("cliente/listarUsuarios");
+    $msg = deletarCliente($id);
+    redirecionar("cliente/listarClientes");
     
 }
 
@@ -119,18 +117,30 @@ function editar($id) {
     //verifica se a página foi submetida
     if (ehPost()) {
         //pega os dados do formulário
-        $nomeUsuario = $_POST["nomeUsuario"];
+        $nome = $_POST["nome"];
         $email = $_POST["email"];
         $senha = $_POST["senha"];
         $nascimento = $_POST["nascimento"];
         $sexo = $_POST["sexo"];
         $telefone = $_POST["telefone"];
         //chama o editarCliente do clienteModelo
-        editarCliente($id, $nomeUsuario, $email, $senha, $nascimento, $sexo, $telefone);
+        editarCliente($id, $nome, $email, $senha, $nascimento, $sexo, $telefone);
         redirecionar("cliente/listarClientes");
     } else {
         //busca os dados do cliente que será alterado
         $dados["cliente"] = pegarClientePorId($id);
         exibir("cliente/formulario", $dados);
+    }
+}
+
+function adiciona($idUsuario) {
+    if (ehPost()) {       
+        $logradouro = strip_tags($_POST ["logradouro"]);
+        $numero =  strip_tags($_POST ["numero"]);
+        $complemento =  strip_tags($_POST ["complemento"]);
+        $bairro =  strip_tags($_POST ["bairro"]);
+        $cidade =  strip_tags($_POST ["cidade"]);
+        $cep =  strip_tags($_POST ["cep"]);
+        $errors = array();
     }
 }

@@ -44,4 +44,3 @@
 </table>
 
 
-<a href="./endereco/adicionar" class="btn btn-primary">Novo endereço</a>

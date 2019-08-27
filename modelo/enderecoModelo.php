@@ -1,7 +1,8 @@
 <?php
 
-function adicionarEndereco ($logradouro, $numero, $complemento, $bairro, $cidade, $cep, $idCliente){
-    $sql = "INSERT INTO endereco (logradouro, numero, complemento, bairro, cidade, cep, id ) VALUES ('$descricao', '$$logradouro', '$numero', '$complemento', '$bairro', '$cidade', '$cep', '$idCliente',)";
+function adicionarEndereco ($idUsuario,$logradouro, $numero, $complemento, $bairro, $cidade, $cep){
+    $sql = "INSERT INTO endereco (idCliente,logradouro, numero, complemento, bairro, cidade, cep, id) "
+            . "VALUES ('$idUsuario','$logradouro', '$numero', '$complemento', '$bairro', '$cidade', '$cep')";
     $resultado = mysqli_query($cnx = conn(), $sql);
     if (!$resultado) {die('Erro ao cadastrar o endereco' . mysqli_error($cnx)); }
     return 'Endereco cadastrado com sucesso!';
@@ -22,7 +23,7 @@ function pegarEnderecoPorId($id){
     //Roda nosso comando
     $resultado = mysqli_query(conn(), $sql);
     //Joga o resultado no array $cupom
-    $cupom = mysqli_fetch_assoc($resultado);
+     $endereco = mysqli_fetch_assoc($resultado);
     //retorna o $produto
     return $endereco;
 }
@@ -44,3 +45,12 @@ function editarEndereco($id, $logradouro, $numero, $complemento, $bairro, $cidad
     return 'Endereco alterado com sucesso!';
 }
 
+function pegarEnderecosPorUsuario ($idUsuario){
+    $sql = "SELECT * FROM endereco WHERE idUsuario= $idUsuario";
+    $resultado = mysqli_query(conn(), $sql);
+    $endereco = array();
+    while ($linha = mysqli_fetch_assoc($resultado)){
+        $endereco[]= $linha;
+    }
+    return $endereco;
+}
