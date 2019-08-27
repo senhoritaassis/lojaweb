@@ -22,7 +22,7 @@ function adicionar() {
   } else {
   if (filter_var($email, FILTER_VALIDATE_EMAIL) == false){
       //caso email seja invalido, adicionar o array
-      $errors[] = "Inserir um e-mail v�lido.";
+      $errors[] = "Inserir um e-mail valido.";
     }
   }
   
