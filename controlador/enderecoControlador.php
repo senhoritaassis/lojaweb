@@ -3,14 +3,14 @@
 require_once "modelo/enderecoModelo.php";
 
 
-function adicionar($idCliente) {
+function adicionar($idUsuario) {
     if (ehPost()) {
-        $logradouro = $_POST["logradouro"];
-        $numero = $_POST["numero"];
-        $complemento = $_POST["complemento"];
-        $bairro = $_POST["bairro"];
-        $cidade = $_POST["cidade"];
-        $cep = $_POST["cep"];
+        $logradouro = strip_tags($_POST ["logradouro"]);
+        $numero =  strip_tags($_POST ["numero"]);
+        $complemento =  strip_tags($_POST ["complemento"]);
+        $bairro =  strip_tags($_POST ["bairro"]);
+        $cidade =  strip_tags($_POST ["cidade"]);
+        $cep =  strip_tags($_POST ["cep"]);
 
 //validação do campo logadouro
         if (strlen(trim($logradouro)) == 0) {
@@ -41,12 +41,16 @@ function adicionar($idCliente) {
         if (strlen(trim($cep)) == 0) {
 //caso nao esteja preenchido, verifiar cep válido
             $errors[] = "Você deve inserir um cep.";
+        }else{
+             $msg = adicionarEndereco($idUsuario,$logradouro, $numero, $complemento, $bairro, $cidade, $cep);
+            echo $msg;
+            redirecionar("cliente/ver/$idUsuario");
         }
     } else {
-//aqui não existem dados submetidos!
-        exibir("endereco/formulario");
+        $dados["endereco"] = pegarEnderecoPorId($idUsuario);
+        exibir ("endereco/formulario", $dados);
     }
-
+}
     function listarEndereco() {
         $dados = array();
         $dados["endereco"] = pegarTodosEndereco();
@@ -81,5 +85,5 @@ function adicionar($idCliente) {
         }
     }
 
-}
+
 
