@@ -2,15 +2,14 @@
 
 require_once "modelo/enderecoModelo.php";
 
-
 function adicionar($idUsuario) {
     if (ehPost()) {
         $logradouro = strip_tags($_POST ["logradouro"]);
-        $numero =  strip_tags($_POST ["numero"]);
-        $complemento =  strip_tags($_POST ["complemento"]);
-        $bairro =  strip_tags($_POST ["bairro"]);
-        $cidade =  strip_tags($_POST ["cidade"]);
-        $cep =  strip_tags($_POST ["cep"]);
+        $numero = strip_tags($_POST ["numero"]);
+        $complemento = strip_tags($_POST ["complemento"]);
+        $bairro = strip_tags($_POST ["bairro"]);
+        $cidade = strip_tags($_POST ["cidade"]);
+        $cep = strip_tags($_POST ["cep"]);
 
 //validação do campo logadouro
         if (strlen(trim($logradouro)) == 0) {
@@ -41,49 +40,47 @@ function adicionar($idUsuario) {
         if (strlen(trim($cep)) == 0) {
 //caso nao esteja preenchido, verifiar cep válido
             $errors[] = "Você deve inserir um cep.";
-        }else{
-             $msg = adicionarEndereco($idUsuario,$logradouro, $numero, $complemento, $bairro, $cidade, $cep);
+        } else {
+            $msg = adicionarEndereco($idUsuario, $logradouro, $numero, $complemento, $bairro, $cidade, $cep);
             echo $msg;
             redirecionar("cliente/ver/$idUsuario");
         }
     } else {
         $dados["endereco"] = pegarEnderecoPorId($idUsuario);
-        exibir ("endereco/formulario", $dados);
+        exibir("endereco/formulario", $dados);
     }
 }
-    function listarEndereco() {
-        $dados = array();
-        $dados["endereco"] = pegarTodosEndereco();
-        exibir("endereco/listar", $dados);
-    }
 
-    function ver($id) {
+function listarEnderecos() {
+    $dados = array();
+    $dados["enderecos"] = pegarTodosEndereco();
+    exibir("endereco/listar", $dados);
+}
+
+function ver($id) {
 //passa o $id para o a função pegarEnderecoPorId do modelo
-        $dados["endereco"] = pegarEnderecoPorId($id);
+    $dados["endereco"] = pegarEnderecoPorId($id);
 //chama o arquivo: visao/endereco/visualizar.visao.php
-        exibir("endereco/visualizar", $dados);
-    }
+    exibir("endereco/visualizar", $dados);
+}
 
-    function deletar($id) {
-        $msg = deletarEndereco($id);
+function deletar($id) {
+    $msg = deletarEndereco($id);
+    redirecionar("endereco/listarEnderecos");
+}
+
+function editar($id) {
+    if (ehPost()) {
+        $logradouro = $_POST["logradouro"];
+        $numero = $_POST["numero"];
+        $complemento = $_POST["complemento"];
+        $bairro = $_POST["bairro"];
+        $cidade = $_POST["cidade"];
+        $cep = $_POST["cep"];
+        editarEndereco($idendereco, $logradouro, $numero, $complemento, $bairro, $cidade, $cep);
         redirecionar("endereco/listarEnderecos");
-    }
-
-    function editar($id) {
-        if (ehPost()) {
-            $logradouro = $_POST["logradouro"];
-            $numero = $_POST["numero"];
-            $complemento = $_POST["complemento"];
-            $bairro = $_POST["bairro"];
-            $cidade = $_POST["cidade"];
-            $cep = $_POST["cep"];         
-            editarEndereco($id, $descricao, $desconto);
-            redirecionar("endereco/listarEnderecos");
-        } else {
+    } else {
 //aqui não existem dados submetidos!
-            exibir("endereco/formulario");
-        }
+        exibir("endereco/formulario");
     }
-
-
-
+}

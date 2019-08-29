@@ -29,7 +29,7 @@
 
             <td><?= $endereco['idendereco'] ?></td>
             <td><?= $endereco['idusuario'] ?></td>
-            <td><?= $endereco['logadouro'] ?></td>
+            <td><?= $endereco['logradouro'] ?></td>
             <td><?= $endereco['numero'] ?></td>
             <td><?= $endereco['complemento'] ?></td>
             <td><?= $endereco['bairro'] ?></td>

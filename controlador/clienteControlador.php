@@ -37,13 +37,7 @@ function adicionar() {
   if (strlen(trim($cpf)) == 0) {
       //caso nao esteja preenchido, verifiar cpf válido
          $errors[] = "Voce deve inserir um cpf.";
-  } else {
-  if (filter_var($cpf, FILTER_VALIDATE_INT) == false){
-      //caso cpf seja invalido, adicionar o array
-      $errors[] = "Inserir um cpf valido.";
-    }
-  }
-  
+  } 
         //validação do campo nome
   if (strlen(trim($nome)) == 0) {
       //caso nao esteja preenchido, verifiar nome válido

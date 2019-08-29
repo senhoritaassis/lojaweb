@@ -1,8 +1,8 @@
 <?php
 
 function adicionarEndereco ($idUsuario,$logradouro, $numero, $complemento, $bairro, $cidade, $cep){
-    $sql = "INSERT INTO endereco (idCliente,logradouro, numero, complemento, bairro, cidade, cep, id) "
-            . "VALUES ('$idUsuario','$logradouro', '$numero', '$complemento', '$bairro', '$cidade', '$cep')";
+    $sql = "INSERT INTO endereco (idendereco,idusuario,logradouro, numero, complemento, bairro, cidade, cep) "
+            . "VALUES (null,'$idUsuario','$logradouro', '$numero', '$complemento', '$bairro', '$cidade', '$cep')";
     $resultado = mysqli_query($cnx = conn(), $sql);
     if (!$resultado) {die('Erro ao cadastrar o endereco' . mysqli_error($cnx)); }
     return 'Endereco cadastrado com sucesso!';
@@ -37,8 +37,8 @@ function deletarEndereco($id) {
     
     return 'Endereco deletado com sucesso!';
 }
-function editarEndereco($id, $logradouro, $numero, $complemento, $bairro, $cidade, $cep) {
-    $sql = "UPDATE endereco SET logradouro = '$logradouro', numero = '$numero, complemento = '$complemento, bairro = '$bairro', cidade = '$cidade, cep = '$cep WHERE idendereco = $idendereco";
+function editarEndereco($idendereco, $logradouro, $numero, $complemento, $bairro, $cidade, $cep) {
+    $sql = "UPDATE endereco SET logradouro = '$logradouro', numero = '$numero', complemento = '$complemento', bairro = '$bairro', cidade = '$cidade', cep = '$cep' WHERE idendereco = '$idendereco'";
     $resultado = mysqli_query($cnx = conn(), $sql);
     if(!$resultado) { die('Erro ao alterar cupom' . mysqli_error($cnx));
     }

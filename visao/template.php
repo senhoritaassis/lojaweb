@@ -19,7 +19,9 @@
             <div id="search" class="grid-x grid-padding-x">
                 <div class="large-12 cell">
                     <img id="pesq"src="./publico/imagem/pesq.png">
-                    <input id="input1" type="text" placeholder="Search" />
+                    <form action="produto/buscar" method="POST">
+                        <input name="buscar" id="input1" type="text" placeholder="Search" />
+                    </form>
                 </div>
             </div>
 

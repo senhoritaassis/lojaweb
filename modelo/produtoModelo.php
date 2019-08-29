@@ -17,6 +17,15 @@ function pegarTodosProdutos() {
     return $produto;
 }
 
+function BuscarProdutoPorNome($nome) {
+    $sql = "SELECT * FROM produto WHERE nomeproduto LIKE '%$nome%'";
+    $resultado = mysqli_query(conn(), $sql);
+    $produto = array();
+    while ($linha = mysqli_fetch_assoc($resultado)) {
+        $produto[] = $linha;
+    }
+    return $produto;
+}
 function pegarProdutoPorId($id){
     //buscar um único produto pelo $id
     $sql = "SELECT * FROM produto WHERE idProduto= $id";
