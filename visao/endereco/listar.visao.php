@@ -7,7 +7,7 @@
             
         <th>ID</th>
         
-        <th>LOGADOURO</th> 
+        <th>LOGRADOURO</th> 
         
         <th>NUMERO</th>
         

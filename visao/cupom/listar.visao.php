@@ -31,7 +31,7 @@
 </table>
 
 
-<a href="./cupom/adicionar" class="btn btn-primary">Novo cupom</a>
+<a href="./FormaPagamento/adicionar" class="btn btn-primary">Nova Forma de Pagemento</a>
 
 
 

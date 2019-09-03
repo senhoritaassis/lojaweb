@@ -13,6 +13,7 @@ function buscar() {
 }
 
 function adicionar() {
+    echo $_SERVER["REQUEST_METHOD"] ;
     if (ehPost()) {
         $nomeproduto = $_POST["nomeproduto"];
         $tipo = $_POST["tipo"];

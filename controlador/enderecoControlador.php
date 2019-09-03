@@ -11,9 +11,9 @@ function adicionar($idUsuario) {
         $cidade = strip_tags($_POST ["cidade"]);
         $cep = strip_tags($_POST ["cep"]);
 
-//validação do campo logadouro
+//validação do campo logradouro
         if (strlen(trim($logradouro)) == 0) {
-//caso nao esteja preenchido, verifiar logadouro válido
+//caso nao esteja preenchido, verifiar logradouro válido
             $errors[] = "Você deve inserir um logradouro.";
         }
 
