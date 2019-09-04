@@ -37,9 +37,9 @@
         <tr>
 
             <td><?= $produto['idproduto'] ?></td>
-            <td><?= $produto['preco'] ?></td>
-            <td><?= $produto['nomeproduto'] ?></td>
+            <td><?= $produto['nome'] ?></td>
             <td><?= $produto['tipo'] ?></td>
+            <td><?= $produto['preco'] ?></td>
             <td><?= $produto['cor'] ?></td>
             <td><?= $produto['fabricante'] ?></td>
             <td><?= $produto['descricao'] ?></td>

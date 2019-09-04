@@ -36,10 +36,11 @@
 
 
             <div id="menu">
-                <a href="brinquedos.html">Brinquedos</a>
-                <a href="acessorios.html">Acessórios</a>
-                <a href="alimentos.html">Alimentos</a>
-                <a href="saude.html">Saúde</a>
+                <a href="./produto/listarProdutos">Produtos</a>
+                <a href="./categoria/listarCategoriaS">Categoria</a>
+                <a href="./cliente/listarClientes">Cliente</a>
+                <a href="./FormaPagamento/listarFormaPagamento">Forma de Pagamento</a>
+                <a href="./cupom/listarCupons">Cupom</a>
             </div>
         </div>
 
