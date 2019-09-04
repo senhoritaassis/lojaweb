@@ -37,7 +37,7 @@
         <tr>
 
             <td><?= $produto['idproduto'] ?></td>
-            <td><?= $produto['nome'] ?></td>
+            <td><?= $produto['nomeproduto'] ?></td>
             <td><?= $produto['tipo'] ?></td>
             <td><?= $produto['preco'] ?></td>
             <td><?= $produto['cor'] ?></td>
