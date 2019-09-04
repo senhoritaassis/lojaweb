@@ -7,10 +7,11 @@
         <title>Foundation for Sites</title>
         <base href="<?= URL_BASE ?>"><!--Esta instrução é super importante e não deve ser mudada!-->
 
-        <link rel="stylesheet" href="css/foundation.css">
-        <link rel="stylesheet" href="css/app.css">
-        <link rel="stylesheet" href="css1.css">
+        <link rel="stylesheet" href="./publico/css/foundation.css">
+         <link rel="stylesheet" href="./publico/css/app.css">
+        <link rel="stylesheet" href="./publico/css/css1.css">
         <title></title>
+    </head>
     <body>
         <div id="caixa1">
             <a href="index.html"><img id="logo1" src="./publico/imagem/logo1.jpg"></a>
@@ -42,13 +43,7 @@
             </div>
         </div>
 
-    <head>
-        <title>template MVC</title>
-        <meta charset="utf-8">
-        <base href="<?= URL_BASE ?>"><!--Esta instrução é super importante e não deve ser mudada!-->
-
-        <link rel="stylesheet" href="./publico/css/app.css">
-    </head>
+  
     <body class="container">
 
 

@@ -26,7 +26,7 @@ function BuscarProdutoPorNome($nome) {
     }
     return $produto;
 }
-function pegarProdutosPorId($id){
+function pegarProdutoPorId($id){
     //buscar um único produto pelo $id
     $sql = "SELECT * FROM produto WHERE idProduto= $id";
     //Roda nosso comando
@@ -54,4 +54,3 @@ function editarProduto($id, $nomeproduto, $tipo, $preco, $cor, $fabricante, $des
     }
     return 'Produto alterado com sucesso!';
 }
-

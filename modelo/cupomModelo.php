@@ -1,7 +1,7 @@
 <?php
 
 function adicionarCupom ($descricao, $desconto){
-    $sql = "INSERT INTO cupom (descricao, desconto) VALUES ('$descricao', '$desconto')";
+    $sql = "INSERT INTO cupom (momecupom, desconto) VALUES ('$descricao', '$desconto')";
     $resultado = mysqli_query($cnx = conn(), $sql);
     if (!$resultado) {die('Erro ao cadastrar o cupom' . mysqli_error($cnx)); }
     return 'Cupom cadastrado com sucesso!';
