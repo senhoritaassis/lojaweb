@@ -10,20 +10,7 @@
             <th>DELETE</th>
             <th>QUANTIDADE</th>
         </tr>
-    </thead>
-    <?php foreach ($produtos as $produto): ?>
-    
-        <tr>
 
-            <td><?= $carrinho['idproduto'] ?></td>
-            <td><?= $carrinho['nome'] ?></td>
-            <td><?= $carrinho['preco'] ?></td>
-            <td><?= $carrinho['delete'] ?></td>
-            <td><?= $carrinho['quantidade'] ?></td>
-            <td><a href="./carrinho/deletar/<?=$carrinho['id']?>">Deletar</a></td>
-            <td><a href="./carrinho/comprar/<?=$carrinho['id']?>">Comprar</a></td>
-            
-</tr>
     <?php
     if (isset($_SESSION['carrinho'])) {
         $total = 0;
