@@ -18,7 +18,7 @@ function pegarTodosProdutos() {
 }
 
 function BuscarProdutoPorNome($nome) {
-    $sql = "SELECT * FROM produto WHERE nomeproduto LIKE '%".$nome."%'";
+    $sql = "SELECT * FROM produto WHERE nomeproduto LIKE '%$nome%'";
     $resultado = mysqli_query(conn(), $sql);
     $produto = array();
     while ($linha = mysqli_fetch_assoc($resultado)) {
@@ -28,7 +28,7 @@ function BuscarProdutoPorNome($nome) {
 }
 function pegarProdutoPorId($id){
     //buscar um único produto pelo $id
-    $sql = "SELECT * FROM produto WHERE idProduto= $id";
+    $sql = "SELECT * FROM produto WHERE idproduto= '$id'";
     //Roda nosso comando
     $resultado = mysqli_query(conn(), $sql);
     //Joga o resultado no array $produto
@@ -38,7 +38,7 @@ function pegarProdutoPorId($id){
 }
 
 function deletarProduto($id) {
-    $sql = "DELETE FROM produto WHERE idProduto = $id";
+    $sql = "DELETE FROM produto WHERE idproduto = $id";
     $resultado = mysqli_query($cnx = conn(), $sql);
     if(!$resultado) {
      die('Erro ao deletar produto' . mysqli_error($cnx));
@@ -54,3 +54,5 @@ function editarProduto($id, $nomeproduto, $tipo, $preco, $cor, $fabricante, $des
     }
     return 'Produto alterado com sucesso!';
 }
+
+

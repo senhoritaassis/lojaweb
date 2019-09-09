@@ -33,7 +33,7 @@ function adicionar() {
         } else {
              //chamar a função do modelo para salvar no banco de dados 
             $msg = adicionarCupom($descricao, $desconto);
-            echo $msg;
+            exibir("cupom/listar", $dados);
             //redirecionar("cupom/listarCupons");
          }
     } else {

@@ -37,9 +37,9 @@
         <tr>
 
             <td><?= $produto['idproduto'] ?></td>
+            <td><?= $produto['preco'] ?></td>
             <td><?= $produto['nomeproduto'] ?></td>
             <td><?= $produto['tipo'] ?></td>
-            <td><?= $produto['preco'] ?></td>
             <td><?= $produto['cor'] ?></td>
             <td><?= $produto['fabricante'] ?></td>
             <td><?= $produto['descricao'] ?></td>
@@ -52,7 +52,7 @@
             <td><a href="./produto/ver/<?=$produto['idproduto']?>">Ver</a></td>
             <td><a href="./produto/editar/<?=$produto['idproduto']?>">Alterar</a></td>
             <td><a href="./produto/deletar/<?=$produto['idproduto']?>">Deletar</a></td>
-            <td><a href="./produto/comprar/<?=$produto['idproduto']?>">Comprar</a></td>
+            <td><a href="./carrinho/comprar/<?=$produto['idproduto']?>">Comprar</a></td>
             
 </tr>
     <?php endforeach; ?>
@@ -60,5 +60,6 @@
 
 
 <a href="./produto/adicionar" class="btn btn-primary">Novo produto</a>
+
 
 
