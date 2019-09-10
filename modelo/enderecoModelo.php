@@ -29,7 +29,7 @@ function pegarEnderecoPorId($id){
 }
 
 function deletarEndereco($id) {
-    $sql = "DELETE FROM cupom WHERE idendereco = $id";
+    $sql = "DELETE FROM endereco WHERE idendereco = $id";
     $resultado = mysqli_query($cnx = conn(), $sql);
     if(!$resultado) {
      die('Erro ao deletar endereco' . mysqli_error($cnx));
