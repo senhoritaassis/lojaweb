@@ -10,11 +10,11 @@ function adicionarCupom ($descricao, $desconto){
 function pegarTodosCupom() {
     $sql = "SELECT * FROM cupom";
     $resultado = mysqli_query(conn(), $sql);
-    $cupom = array();
+    $cupons = array();
     while ($linha = mysqli_fetch_assoc($resultado)) {
-        $cupom[] = $linha;
+        $cupons[] = $linha;
     }
-    return $cupom;
+    return $cupons;
 }
 function pegarCupomPorId($id){
     //buscar um único cupom pelo $id

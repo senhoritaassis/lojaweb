@@ -17,7 +17,7 @@
     
         <tr>
 
-            <td><?= $FormaPagamento['idFormaPagamento'] ?></td>
+                <td><?= $FormaPagamento['idFormaPagamento'] ?></td>
             <td><?= $FormaPagamento['descricao'] ?></td>
             <td><a href="./FormaPagamento/ver/<?=$FormaPagamento['idFormaPagamento']?>">Ver</a></td>
             <td><a href="./FormaPagamento/editar/<?=$FormaPagamento['idFormaPagamento']?>">Alterar</a></td>

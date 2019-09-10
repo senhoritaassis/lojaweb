@@ -4,7 +4,6 @@ require_once "modelo/cupomModelo.php";
 
 function adicionar() {
      if(ehPost()) {
-        echo "cliquei no formulario!";
         $descricao = $_POST["descricao"];
         $desconto = $_POST["desconto"];
         $errors = array();
@@ -33,12 +32,11 @@ function adicionar() {
         } else {
              //chamar a função do modelo para salvar no banco de dados 
             $msg = adicionarCupom($descricao, $desconto);
-            exibir("cupom/listar", $dados);
-            //redirecionar("cupom/listarCupons");
+            redirecionar("cupom/listarCupons");
          }
     } else {
         //aqui não existem dados submetidos!
-        echo "else";
+      
         exibir("cupom/formulario");
     }
 }
