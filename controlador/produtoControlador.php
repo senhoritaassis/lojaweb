@@ -2,6 +2,8 @@
 
 require_once "modelo/produtoModelo.php";
 require_once "modelo/categoriaModelo.php";
+require_once "servico/uploadServico.php";
+require_once "servico/validacaoServico.php";
 
 function buscar() {
     if (ehPost()) {
@@ -21,11 +23,16 @@ function adicionar() {
         $fabricante = $_POST["fabricante"];
         $descricao = $_POST["descricao"];
         $tamanho = $_POST["tamanho"];
-        $imagem = $_POST["imagem"];
+
+        $nome_tmp_imagem = $_FILES["imagem"]["tmp_name"]; # vai pegar o nome temporário do arquivo da imagem
+        $nome_imagem = $_FILES["imagem"]["name"]; # vai pegar o nome real do arquivo da imagem
+        $imagem = uploadImagem($nome_tmp_imagem, $nome_imagem);
+
         $categoria = $_POST["idcategoria"];
         $quantidade = $_POST["quantidade"];
         $estoque_minimo = $_POST["estoque_minimo"];
         $estoque_maximo = $_POST["estoque_maximo"];
+
 
         //validação do campo nome
         if (strlen(trim($nomeproduto)) == 0) {
@@ -155,7 +162,11 @@ function editar($id) {
         $fabricante = $_POST["fabricante"];
         $descricao = $_POST["descricao"];
         $tamanho = $_POST["tamanho"];
-        $imagem = $_POST["imagem"];
+
+        $imagem_temp_name = $_FILES["imagem"]["tmp_name"]; # vai pegar o nome temporário do arquivo da imagem
+        $name_imagem = $_FILES["imagem"]["name"]; # vai pegar o nome real do arquivo da imagem
+        $imagem = uploadImagem($nome_tmp_imagem, $nome_imagem);
+
         $categoria = $_POST["idcategoria"];
         $quantidade = $_POST["quantidade"];
         $estoque_minimo = $_POST["estoque_minimo"];
@@ -170,5 +181,3 @@ function editar($id) {
         exibir("produto/formulario", $dados);
     }
 }
-
-
