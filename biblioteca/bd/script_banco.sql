@@ -38,7 +38,7 @@ CREATE TABLE produto(
     estoque_minimo INT(8) NOT NULL,
     estoque_maximo INT(8) NOT NULL,
     PRIMARY KEY (idproduto),
-    foreign key (idCategoria) references categoria (idCategoria) on delete cascade on update cascade
+    foreign key (idCategoria) references categoria (idCategoria) on update cascade on delete cascade
 );
 
 create table usuario (
