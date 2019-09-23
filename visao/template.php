@@ -27,8 +27,8 @@
             </div>
 
             <a href="login.html"><img id="user"src="./publico/imagem/user.png"></a>
-            <a href="carrinho2.html"><img id="car"src ="./publico/imagem/car.png"></a>
-            <a href="admin.html"><img id="edit" src="./publico/imagem/edit.png"></a>
+            <a href="./carrinho/adicionar/"><img id="car"src ="./publico/imagem/car.png"></a>
+           <a href="./produto/listarProdutos"><img id="edit" src="./publico/imagem/edit.png"></a>
         </div>
 
         <div class="cor">
@@ -36,7 +36,7 @@
 
 
             <div id="menu">
-                <a href="./produto/listarProdutos">Produtos</a>
+                
                 <a href="./categoria/listarCategoriaS">Categoria</a>
                 <a href="./cliente/listarClientes">Cliente</a>
                 <a href="./FormaPagamento/listarFormaPagamento">Forma de Pagamento</a>
