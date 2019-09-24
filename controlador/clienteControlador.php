@@ -100,7 +100,7 @@ function ver($idCliente){
     exibir ("cliente/visualizar", $dados);
 }
 
-
+/** user, admin */
 function deletar($id) {
     $msg = deletarCliente($id);
     redirecionar("cliente/listarClientes");
