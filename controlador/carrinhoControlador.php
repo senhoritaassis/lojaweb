@@ -3,6 +3,8 @@
 require "./modelo/produtoModelo.php";
 require "./modelo/cupomModelo.php";
 
+/** anon */  
+
 function index() {
     if (isset($_SESSION["carrinho"])) {
         //pega e manda produto por id
@@ -23,6 +25,7 @@ function index() {
     }
 }
 
+/** anon */  
 function excluir($id) {
     //print_r($_SESSION["carrinho"]);
     for ($i = 0; $i < count($_SESSION["carrinho"]); $i++) {
@@ -38,11 +41,13 @@ function excluir($id) {
     }
 }
 
+/** anon */  
 function excluirTudo($id) {
     unset($_SESSION["carrinho"]);
     redirecionar("carrinho/index");
 }
 
+/** anon */  
 function adicionar($id) {
     if (!isset($_SESSION["carrinho"])) {
         $_SESSION["carrinho"] = array();
@@ -63,10 +68,12 @@ function adicionar($id) {
     redirecionar("carrinho/index");
 }
 
+/** anon */  
 function calPreco($preco, $quant) {
     return $preco * $quant;
 }
 
+/** anon */  
 function minOne($id) {
     for ($i = 0; $i < count($_SESSION["carrinho"]); $i++) {
         if ($_SESSION["carrinho"][$i]["idproduto"] == $id) {
@@ -80,6 +87,7 @@ function minOne($id) {
     redirecionar("carrinho/index");
 }
 
+/** anon */  
 function sumOne($id) {
     //$quant = pegarQuantProdutoPorId($id);
     for ($i = 0; $i < count($_SESSION["carrinho"]); $i++) {

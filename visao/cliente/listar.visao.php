@@ -17,6 +17,8 @@
         
         <th>SEXO</th>
         
+         <th>TIPO</th>
+        
         <th>TELEFONE</th>
         </tr>        
     </thead>
@@ -29,6 +31,7 @@
             <td><?= $cliente['nome'] ?></td>
             <td><?= $cliente['nascimento'] ?></td>
             <td><?= $cliente['sexo'] ?></td>
+            <td><?= $cliente['tipo'] ?></td>
             <td><?= $cliente['telefone'] ?></td>
             <td><a href="./cliente/ver/<?=$cliente['idCliente']?>">Ver</a></td>
             <td><a href="./cliente/editar/<?=$cliente['idCliente']?>">Alterar</a></td>

@@ -11,6 +11,7 @@ cpf varchar (15) NOT NULL,
 nome varchar (60) NOT NULL,
 nascimento varchar (10) NOT NULL,
 sexo varchar (10) NOT NULL,
+tipo varchar(10) NOT NULL,
 telefone varchar (15) NOT NULL,
 primary key (idCliente)
 );

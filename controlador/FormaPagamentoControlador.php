@@ -4,6 +4,8 @@
 require_once "modelo/FormaPagamentoModelo.php";
 require_once "modelo/clienteModelo.php";
 
+  
+/** A */
 function adicionar() {
     if (ehPost()) {
         echo "cliquei no formulario!";
@@ -19,12 +21,14 @@ function adicionar() {
     }
     }
 
+/** A */
 function listarFormaPagamento() {
     $dados = array();
     $dados["FormaPagamentos"] = pegarTodasFormaPagamentos();
     exibir("FormaPagamento/listar", $dados);
 }
 
+/** A */
 function ver($id) {
 //passa o $id para o a função pegarFormaPagamentoPorId do modelo
 $dados["FormaPagamento"] = pegarFormaPagamentoPorId($id);
@@ -32,11 +36,13 @@ $dados["FormaPagamento"] = pegarFormaPagamentoPorId($id);
 exibir("FormaPagamento/visualizar", $dados);
 }
 
+/** A */
 function deletar($id) {
 $msg = deletarFormaPagamento($id);
 redirecionar("FormaPagamento/listarFormaPagamento");
 }
 
+/** A */
 function editar ($id) {
     if (ehPost()) {
         echo "cliquei no formulario!";

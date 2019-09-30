@@ -2,6 +2,7 @@
 
 require_once "modelo/enderecoModelo.php";
 
+/** anon */  
 function adicionar($idUsuario) {
     if (ehPost()) {
         $logradouro = strip_tags($_POST ["logradouro"]);
@@ -51,12 +52,14 @@ function adicionar($idUsuario) {
     }
 }
 
+/** anon */  
 function listarEnderecos() {
     $dados = array();
     $dados["enderecos"] = pegarTodosEndereco();
     exibir("endereco/listar", $dados);
 }
 
+/** anon */  
 function ver($id) {
 //passa o $id para o a função pegarEnderecoPorId do modelo
     $dados["endereco"] = pegarEnderecoPorId($id);
@@ -64,11 +67,13 @@ function ver($id) {
     exibir("endereco/visualizar", $dados);
 }
 
+/** anon */  
 function deletar($id) {
     $msg = deletarEndereco($id);
     redirecionar("endereco/listarEnderecos");
 }
 
+/** anon */  
 function editar($id) {
     if (ehPost()) {
         $logradouro = $_POST["logradouro"];

@@ -14,7 +14,7 @@
     </head>
     <body>
         <div id="caixa1">
-            <a href="index.html"><img id="logo1" src="./publico/imagem/logo1.jpg"></a>
+            <a href="paginas/"><img id="logo1" src="./publico/imagem/logo1.jpg"></a>
 
 
             <div id="search" class="grid-x grid-padding-x">

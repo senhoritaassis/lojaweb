@@ -3,6 +3,7 @@
 require_once "modelo/categoriaModelo.php";
 require_once "modelo/categoriaModelo.php";
 
+/** A */
 function adicionar() {
     if (ehPost()) {
         //aqui os dados foram submetidos!
@@ -24,14 +25,14 @@ function adicionar() {
     exibir("categoria/formulario");
 }
 
-
+/** A */
 function listarCategorias() {
     $dados = array();
     $dados["categorias"] = pegarTodasCategorias();
     exibir("categoria/listar", $dados);
 }
 
-
+/** A */
 function ver($id) {
     //passa o $id para o a função pegarUsuarioPorId do modelo
     $dados["categoria"] = pegarCategoriaPorId($id);
@@ -39,13 +40,14 @@ function ver($id) {
     exibir("categoria/visualizar", $dados);
 }
  
-
+/** A */
 function deletar($id) {
     $msg = deletarCategoria($id);
     redirecionar("categoria/listarCategorias");
     
 }
 
+/** A */
 function editar($id) {
     //verifica se a página foi submetida
     if (ehPost()) {

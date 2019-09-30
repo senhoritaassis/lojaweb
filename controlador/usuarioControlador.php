@@ -2,6 +2,7 @@
 
 require_once "modelo/usuarioModelo.php";
 
+/** anon */  
 function index() {
     $dados["usuarios"] = pegarTodosUsuarios();
     exibir("usuario/listar", $dados);

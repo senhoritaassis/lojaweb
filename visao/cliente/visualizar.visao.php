@@ -7,6 +7,7 @@
 <p>CPF: <?=$cliente ['cpf']?> </p>
 <p>Data de Nascimento: <?=$cliente ['nascimento']?> </p>
 <p>Sexo: <?=$cliente ['sexo']?> </p>
+<p>Tipo: <?=$cliente ['tipo']?> </p>
 <p>Telefone: <?=$cliente ['telefone']?> </p>
 
 

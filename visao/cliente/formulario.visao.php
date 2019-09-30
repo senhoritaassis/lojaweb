@@ -23,6 +23,15 @@
     Feminino <input type="radio" name="sexo" value="F">
     Masculino <input type="radio" name="sexo" value="M" checked="cheked"><br><br>
     <?php endif;?>
+    Tipo:<br><br>
+    <?php if(isset($cliente['tipo']) && $cliente['tipo']=="F"):?>
+    usuario<input type="radio" name="tipo" value="U" checked="cheked">
+    admin <input type="radio" name="tipo" value="A"><br><br>
+    <?php else:?>
+    usuario <input type="radio" name="tipo" value="U">
+    admin <input type="radio" name="tipo" value="A" checked="cheked"><br><br>
+    <?php endif;?>
+   
     
     Telefone: <input type="tel" mask="(__) _____-____" placeholder="Ex: (99) 99999-9999" name="telefone" value="<?=@$cliente['telefone']?>"> <br><br>
     <button type="submit">Criar seu cadastro</button><br>

@@ -2,6 +2,8 @@
 
 session_start();
 
+
+
 //arquivos obrigatorios do framework
 require_once 'biblioteca/mysqli.php';
 require_once 'biblioteca/visao.php';

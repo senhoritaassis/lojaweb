@@ -3,6 +3,7 @@
 require_once "modelo/clienteModelo.php";
 require_once "modelo/enderecoModelo.php";
 
+/** anon */  
 function adicionar() {
     if(ehPost()) {
         //aqui os dados foram submetidos!
@@ -13,6 +14,7 @@ function adicionar() {
         $nome = $_POST["nome"];
         $nascimento = $_POST["nascimento"];
         $sexo = $_POST["sexo"];
+        $tipo = $_POST["tipo"];
         $telefone = $_POST["telefone"];
         //aqui vai as suas validações dos campos acima
         
@@ -56,6 +58,11 @@ function adicionar() {
          $errors[] = "Voce deve inserir um sexo.";
   } 
   
+    if (strlen(trim($tipo)) == 0) {
+      //caso nao esteja preenchido, verifiar tipo válido
+         $errors[] = "Voce deve inserir um tipo.";
+  } 
+  
   //validação do campo telefone
   if (strlen(trim($telefone)) == 0) {
       //caso nao esteja preenchido, verifiar telefone válido
@@ -74,7 +81,7 @@ function adicionar() {
       exibir("cliente/formulario", $dados);
   } else {
      //chamar a função do modelo para salvar no banco de dados
-     $msg = adicionarCliente($email, $senha, $cpf, $nome, $nascimento, $sexo, $telefone);
+     $msg = adicionarCliente($email, $senha, $cpf, $nome, $nascimento, $sexo, $tipo, $telefone);
         echo $msg;
         redirecionar("./cliente/listarClientes"); 
   }
@@ -87,13 +94,14 @@ function adicionar() {
 
 
 
-
+/** anon */
 function listarClientes() {
     $dados = array();
     $dados["clientes"] = pegarTodosClientes();
     exibir("cliente/listar", $dados);
 }
 
+/** anon */
 function ver($idCliente){
     $dados ["cliente"] = pegarClientePorId($idCliente);
     $dados ["enderecos"] = pegarEnderecosPorUsuario($idCliente);
@@ -107,6 +115,7 @@ function deletar($id) {
     
 }
 
+/** anon */
 function editar($id) {
     //verifica se a página foi submetida
     if (ehPost()) {
@@ -116,9 +125,10 @@ function editar($id) {
         $senha = $_POST["senha"];
         $nascimento = $_POST["nascimento"];
         $sexo = $_POST["sexo"];
+        $tipo = $_POST["tipo"];
         $telefone = $_POST["telefone"];
         //chama o editarCliente do clienteModelo
-        editarCliente($id, $nome, $email, $senha, $nascimento, $sexo, $telefone);
+        editarCliente($id, $nome, $email, $senha, $nascimento, $sexo, $tipo, $telefone);
         redirecionar("cliente/listarClientes");
     } else {
         //busca os dados do cliente que será alterado
@@ -127,6 +137,7 @@ function editar($id) {
     }
 }
 
+/** anon */
 function adiciona($idUsuario) {
     if (ehPost()) {       
         $logradouro = strip_tags($_POST ["logradouro"]);

@@ -5,6 +5,7 @@ require_once "modelo/categoriaModelo.php";
 require_once "servico/uploadServico.php";
 require_once "servico/validacaoServico.php";
 
+/** anon */  
 function buscar() {
     if (ehPost()) {
         $nome = $_POST["buscar"];
@@ -14,6 +15,7 @@ function buscar() {
     }
 }
 
+/** A */  
 function adicionar() {
     if (ehPost()) {
         $nomeproduto = $_POST["nomeproduto"];
@@ -133,12 +135,14 @@ function adicionar() {
     }
 }
 
+/** anon */  
 function listarProdutos() {
     $dados = array();
     $dados["produtos"] = pegarTodosProdutos();
     exibir("produto/listar", $dados);
 }
 
+/** anon */  
 function ver($id) {
     //passa o $id para o a função pegarUsuarioPorId do modelo
     $dados["produto"] = pegarProdutoPorId($id);
@@ -146,11 +150,13 @@ function ver($id) {
     exibir("produto/visualizar", $dados);
 }
 
+/** A */  
 function deletar($id) {
     $msg = deletarProduto($id);
     redirecionar("produto/listarProdutos");
 }
 
+/** A */  
 function editar($id) {
     //verifica se a página foi submetida
     if (ehPost()) {
