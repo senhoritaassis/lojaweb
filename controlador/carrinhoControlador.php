@@ -10,7 +10,7 @@ function index() {
         //pega e manda produto por id
         $produtosCarrinhoId = array();
         foreach ($_SESSION["carrinho"] as $produtoID) {
-            $produtosCarrinhoId[] = pegarProdutoPorId($produtoID["idproduto"]);
+        $produtosCarrinhoId[] = pegarProdutoPorId($produtoID["idproduto"]);
         }
         $dados["produtos"] = $produtosCarrinhoId;
         //pega e manda quantidade de produtos

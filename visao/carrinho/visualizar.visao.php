@@ -30,6 +30,8 @@
     <?php
         $_SESSION["valorTotal"] = $soma;
     ?>
-<a href="./carrinho/excluirTudo">Limpar Carrinho</a>
-<a href="./compra/">Comprar</a>	
+
+    <a href="./compra/">Comprar</a>	
+    <br> <br>
+    <a href="./carrinho/excluirTudo">Limpar Carrinho</a>
 </center>

@@ -76,3 +76,17 @@ function editar ($id) {
         exibir("cupom/formulario");
     }
 }
+
+/** anon */ 
+function confereCupom() {
+    if (ehPost()) {
+        extract($_POST);
+       
+        $descricao = $_POST["descricao"];
+        $_SESSION["cupom"] = pegarCupomPorId($id);
+        redirecionar("compra/", $_SESSION['cupom']);
+    } else {
+        exibir("cupom/confereCupom");
+    }
+   
+}
