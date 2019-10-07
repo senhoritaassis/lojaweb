@@ -77,6 +77,7 @@ primary key (idFormaPagamento)
 
 create table pedido (
 	idpedido int(11) not null auto_increment,
+        idFormaPagamento int(11) not null,
 	idusuario int(11) not null,
 	idendereco int(11) not null,
 	datacompra date not null,

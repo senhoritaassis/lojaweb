@@ -7,7 +7,8 @@
 		</tr>
 		<?php foreach ($produtos as $produto): ?>
 			<tr>
-				<td><a href="./produto/visualizar/<?=$produto['IdProduto']?>" class="btn btn-secondary"><?= $produto["NomeProduto"] ?></a></td>
+				
+                                <td><a href="./produto/visualizar/<?=$produto['idproduto']?>" class="btn btn-secondary"><?= $produto["nomeproduto"] ?></a></td>
 			</tr>
 		<?php endforeach; ?>
 	</table>
@@ -39,7 +40,7 @@
 				<input type="radio" name="pagamento" value="Boleto">
 				<label for="pagamento">Boleto Bancário</label><br>
 				<input type="radio" name="pagamento" value="PrincipalTecno">
-				<label for="pagamento">Cartão Principal Tecno</label><br><br>
+				<label for="pagamento">Cartão Principal Pet&gatô</label><br><br>
 			</form>
 	<?php
 		}

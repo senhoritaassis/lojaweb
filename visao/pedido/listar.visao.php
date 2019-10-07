@@ -12,7 +12,7 @@
             <?php foreach ($pedidos as $pedido): ?>
                 <tr>
                     <?php
-                        $nome = buscarProd($pedido["IdProduto"]);
+                        $nome = buscarProd($pedido["idproduto"]);
                     ?>
                     <td><?=$pedido['VlrTotal']?></td>
                     <td><?=$pedido['Dtpedido']?></td>

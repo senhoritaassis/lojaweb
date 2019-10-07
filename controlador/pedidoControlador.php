@@ -14,23 +14,41 @@ function index($id) {
 }
 function buscarProd($id){
 	$busca = pegarNomeProdutoPorId($id);
-	return $busca["NomeProduto"];
+	return $busca["nomeproduto"];
 }
 function finalizar(){
-	$idProd = array();
-	$quant = array();
-	$valFrete = 5;
-	$vlrProd = $_SESSION["valorTotal"];
-	$obs = "algo";
+	$idproduto = array();
+	$idFormaPagamento = array();
+        $idusuario= array();
+        $idendereco = array();
+	$datacompra = array();
+        $idpedido = array();
 	for ($i=0; $i < count($_SESSION["carrinho"]); $i++) { 
-		$idProd = $_SESSION["carrinho"][$i]["id"];
-		$quant = $_SESSION["carrinho"][$i]["quantidade"];
+		$idproduto = $_SESSION["carrinho"][$i]["id"];
+		$quantidade = $_SESSION["carrinho"][$i]["quantidade"];
 	}
-	$pedido = adicionarPedido($idProd,$quant,$valFrete, $vlrProd,$obs);
+	$pedido = adicionarPedido($idpedido,$idFormaPagamento, $idusuario, $idendereco, $datacompra);
 	unset($_SESSION["carrinho"]);
 	unset($_SESSION["cupom"]);
         unset($_SESSION["valorTotal"]);
-	unset($_SESSION["metodo"]);
-        unset($_SESSION['segurança']);
-        redirecionar("./home/");
+	unset($_SESSION[""]);
+        unset($_SESSION['']);
+        redirecionar("pedido/formulario");
 }
+
+
+function adicionar() {
+    if (ehPost()) {
+        $idFormaPagamento = $_POST["FormaPagamento"];
+        $idendereco = $_POST["endereco"];
+        $id = $_POST["nomeproduto"];
+        $idproduto = $_SESSION["carrinho"][$i]["id"];
+                
+        
+        } else {
+        //aqui não existem dados submetidos!
+        $dados["FormaPagamento"] = pegarTodasFormasPagamento();
+        exibir("produto/formulario", $dados);
+    }
+        
+}    

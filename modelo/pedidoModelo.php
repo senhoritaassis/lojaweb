@@ -18,12 +18,12 @@ function pegarPedidosPorId($id){
     }
     return $pedidos;
 }
-function adicionarPedido($idProd,$quant,$valFrete, $vlrProd,$obs){
+function adicionarPedido($idpedido,$idFormaPagamento, $idusuario, $idendereco, $datacompra){
     $idUser = $_SESSION["idLogado"];
-    $sql = "INSERT INTO pedido(IdUsuario,IdProduto,Quantidade,Dtpedido, Dtentrega, Frete, VlrTotal, Observacao) 
-VALUES ('$idUser','$idProd','$quant',NOW(),NOW()+INTERVAL 15 DAY,'$valFrete','$vlrProd','$obs')";
+    $sql = "INSERT INTO pedido(idpedido, idFormaPagamento, idusuario idendereco, datacompra) 
+    VALUES ('$idpedido','$idusuario','$idFormaPagamento','$idendereco','$datacompra)";
     $resultado = mysqli_query($cnx = conn(), $sql);
-    if(!$resultado) { die('Erro ao cadastrar produto' . mysqli_error($cnx)); }
+    if(!$resultado) { die('Erro ao cadastrar pedido' . mysqli_error($cnx)); }
     return 'Produto cadastrado com sucesso!';
 }
 function pegarPedidosPorInterDatas(){
@@ -36,9 +36,12 @@ function pegarPedidosPorInterDatas(){
     }
     return $pedidos;
 }
-function FaturamentoPorPeriodo(){
-    $sql = "SELECT SUM(VlrTotal) FROM pedido WHERE DtPedido >= NOW()-INTERVAL 30 DAY";
-    $resultado = mysqli_query(conn(), $sql);
-    $pedidos = mysqli_fetch_array($resultado);
-    return $pedidos;
-}
+
+
+
+//function FaturamentoPorPeriodo(){
+   // $sql = "SELECT SUM(VlrTotal) FROM pedido WHERE DtPedido >= NOW()-INTERVAL 30 DAY";
+    //$resultado = mysqli_query(conn(), $sql);
+    //$pedidos = mysqli_fetch_array($resultado);
+    //return $pedidos;
+//}
