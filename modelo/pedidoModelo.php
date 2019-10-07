@@ -18,10 +18,10 @@ function pegarPedidosPorId($id){
     }
     return $pedidos;
 }
-function adicionarPedido($idpedido,$idFormaPagamento, $idusuario, $idendereco, $datacompra){
+function adicionarPedido($idFormaPagamento, $idusuario, $idendereco, $datacompra){
     $idUser = $_SESSION["idLogado"];
-    $sql = "INSERT INTO pedido(idpedido, idFormaPagamento, idusuario idendereco, datacompra) 
-    VALUES ('$idpedido','$idusuario','$idFormaPagamento','$idendereco','$datacompra)";
+    $sql = "INSERT INTO pedido(idFormaPagamento, idusuario idendereco, datacompra) 
+    VALUES (NULL,'$idusuario','$idFormaPagamento','$idendereco','$datacompra)";
     $resultado = mysqli_query($cnx = conn(), $sql);
     if(!$resultado) { die('Erro ao cadastrar pedido' . mysqli_error($cnx)); }
     return 'Produto cadastrado com sucesso!';
@@ -37,11 +37,7 @@ function pegarPedidosPorInterDatas(){
     return $pedidos;
 }
 
+//function pegarProdutoMunicipio
 
+// function vizualizar pedid
 
-//function FaturamentoPorPeriodo(){
-   // $sql = "SELECT SUM(VlrTotal) FROM pedido WHERE DtPedido >= NOW()-INTERVAL 30 DAY";
-    //$resultado = mysqli_query(conn(), $sql);
-    //$pedidos = mysqli_fetch_array($resultado);
-    //return $pedidos;
-//}
