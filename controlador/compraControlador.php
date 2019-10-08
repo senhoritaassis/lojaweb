@@ -29,8 +29,9 @@ function index() {
 
 //    $preco_com_desconto = fazendoDesconto($preco_total, $cupom);
 
-    $dados["valor_total"] = $preco_com_desconto;
+    $dados["valor_total"] = $preco_total;
     $dados["quantidade"] = $produtosCarrinhoQuant;
+    
     exibir("compra/formulario", $dados);
 }
 

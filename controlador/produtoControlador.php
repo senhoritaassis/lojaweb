@@ -3,7 +3,7 @@
 require_once "modelo/produtoModelo.php";
 require_once "modelo/categoriaModelo.php";
 require_once "servico/uploadServico.php";
-require_once "servico/validacaoServico.php";
+//require_once "servico/validacaoServico.php";
 
 /** anon */  
 function buscar() {
@@ -187,3 +187,4 @@ function editar($id) {
         exibir("produto/formulario", $dados);
     }
 }
+

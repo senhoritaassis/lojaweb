@@ -14,9 +14,9 @@
 	</table>
         <br>
 	<h3>Valor Total da Compra: <?=$_SESSION["valorTotal"]?></h3>
-        <?php 
-                $_SESSION["valorTotal"] = fazendoDesconto();
+        <?php
 		if (!empty($_SESSION["cupom"])) {
+                    $_SESSION["valorTotal"] = fazendoDesconto($_SESSION["valorTotal"], $_SESSION["cupom"]);
 	?>
                 <h3>Valor Total da Compra Com Desconto: <?=$_SESSION["valorTotal"]?></h3>
         <?php

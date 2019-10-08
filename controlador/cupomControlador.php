@@ -81,9 +81,9 @@ function editar ($id) {
 function confereCupom() {
     if (ehPost()) {
         extract($_POST);
-       
+        
         $descricao = $_POST["descricao"];
-        $_SESSION["cupom"] = pegarCupomPorId($id);
+        $_SESSION["cupom"] = pegarCupomPorDescricao($descricao);
         redirecionar("compra/", $_SESSION['cupom']);
     } else {
         exibir("cupom/confereCupom");

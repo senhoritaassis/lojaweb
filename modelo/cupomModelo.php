@@ -27,6 +27,17 @@ function pegarCupomPorId($id){
     return $cupom;
 }
 
+function pegarCupomPorDescricao($descricao){
+    //buscar um único cupom pelo $id
+    $sql = "SELECT * FROM cupom WHERE nomecupom= $descricao";
+    //Roda nosso comando
+    $resultado = mysqli_query(conn(), $sql);
+    //Joga o resultado no array $cupom
+    $cupom = mysqli_fetch_assoc($resultado);
+    //retorna o $produto
+    return $cupom;
+}
+
 function deletarCupom($id) {
     $sql = "DELETE FROM cupom WHERE idcupom = $id";
     $resultado = mysqli_query($cnx = conn(), $sql);

@@ -1,8 +1,26 @@
 
+<h1>produtos da loja</h1>
+
+<form  action = " ./produto/pesquisaProduto "  method = " POST " >
+    <input  type = " text "  class = " caixaEntraInfo "  espaço reservado = " Produto "  name = " pesquisa " >
+    <button  class = " botao "  type = " submit " > Buscar </ button >
+</form >
+<Br> <br >
 
 
-<h1>Aplicação Web com o MVCd</h1>
+<div  id = " colecoes " >
+    <?php 
+  
+    foreach ( $produtos as $produto ) {
 
-<p>Este é um projeto desenvolvido com propósito educacional e não deve ser usado em projetos reais. A ideia geral do projeto é apresentar as ideias e conceitos de arquitetura, modelos e framework para alunos que ainda não conhecem a orientação a objetos.</p> 
+        <div>
+            <A href = " ./produto/verProdutoId/ <? = $produto [ " idproduto " ] ? > "  >
+                <img  src = " <? = $produto [ ' imagem ' ] ? > "   alt = " não tem " >
+                <h3> <? = $produto [ ' nomeproduto ' ] ? > </ h3 > 
+                <h3 > <? php echo str_replace ( " . " , " , " , $produto [ ' precoProduto ' ]) ? > </ h3 >  
+            </a>
+            <Br>
+       </div>
 
-<p>O framework utiliza o padrão arquitetural MVC, logo sua estrutura básica apresenta os três principais objetos da arquitetura, representados pelas pastas <code>modelo<code>, <code>controlador</code> e <code>visao</code>. </p>
+    <?php endforeach ; ? > 
+</ div >
