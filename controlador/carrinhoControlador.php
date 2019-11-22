@@ -27,7 +27,7 @@ function index() {
 
 /** anon */  
 function excluir($id) {
-    //print_r($_SESSION["carrinho"]);
+    
     for ($i = 0; $i < count($_SESSION["carrinho"]); $i++) {
         if ($_SESSION["carrinho"][$i]["idproduto"] == $id) {
             unset($_SESSION["carrinho"][$i]);
@@ -100,4 +100,35 @@ function sumOne($id) {
     redirecionar("carrinho/index");
 }
 
-?>
+
+
+  function desconto () {
+  if (ehPost()) {
+    $desconto = $_POST["nome"];
+    $porcentagem_cupom = Caldesconto($desconto);
+  
+    //$desconto = 0;
+    $total = 0;
+  
+  $valorTotal = $_SESSION['total'];
+  $valorTotal = $valorTotal - $desconto;
+  $dados["produtos"] = $_SESSION["carrinho"];
+  $dados["total"] = $valorTotal;
+  $_SESSION['total'] = $valorTotal;
+  $_SESSION["quantcarrinho"] = 1;
+  $valorTotal = $valorTotal - (($porcentagem_cupom/100) * $valorTotal); 
+    if (isset($_SESSION["carrinho"])) {
+      $produtosCarrinho = array();
+      foreach ($_SESSION["carrinho"] as $produtoSessao) {
+        //$_SESSION["quantcarrinho"] += $produtoSessao["quantidade"];
+       $produtoBanco = pegarProdutoPorId($produtoSessao);
+        $produtosCarrinho[] = $produtoBanco;
+    }
+    $dados["produtos"] = $produtosCarrinho;
+    $dados['total'] = $valorTotal;
+    exibir("carrinho/listar", $dados);
+  } else {
+    exibir("carrinho/listar", $dados);
+  }
+}
+}

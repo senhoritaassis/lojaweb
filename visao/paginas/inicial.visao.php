@@ -1,22 +1,33 @@
 
-<h1>produtos da loja</h1>
+
+
+<?php foreach ($produtos as $produto):?>
+
+                
+<div class="cor">
+	
+		<div id="produtos1" class="grid-x grid-padding-x">
+
+		
+			<div id="playpet" class="large-2 cell caixaProduto">
+				<a href = " ./produto/verProdutoId/ <?=$produto [ "idproduto" ] ?> ">
+                                <img class="star" src = " <?=$produto [ 'imagem' ] ?> "   alt = " não tem ">
+                                <p><?=$produto[ 'nomeproduto' ] ?></p>
+				<br>
+				<p class="p1"></p><?=$produto[ 'preco' ] ?>
+			</div>
+			
+			
+	
+		</div>
+	
+	
+	</div>
+
+   
+</div>
+
+<?php endforeach;?>
 
 
 
-
-<div  id = " colecoes " >
-    <?php 
- 
-    foreach ( $produtos as $produto ) {
-?>
-        <div>
-            <A href = " ./produto/verProdutoId/ <?=$produto [ "idproduto" ] ?> ">
-                <img  src = " <?=$produto [ 'imagem' ] ?> "   alt = " não tem ">
-                <h3> <?=$produto[ 'nomeproduto' ] ?> </ h3 > 
-                <h3> <?php echo str_replace ( " . " , " , " , $produto [ 'precoproduto' ]) ?> </h3>  
-            </a>
-            <Br>
-       </div>
-
-    <?php } ?> 
-</ div >
