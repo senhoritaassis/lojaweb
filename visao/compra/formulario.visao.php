@@ -22,7 +22,12 @@
         <?php
 		}else{
 	?>
-                <a href="./cupom/confereCupom" class="btn btn-secondary">Possui Cupom?? Clique aqui para usar seu cupom</a>
+                <form action="cupom/desconto" method="POST">
+					<label for="nome">Desconto do Cupom:</label> 
+					<input type="text" name="descricao">
+					<br><br><br>
+					<button type="submit">Enviar</button>
+				</form>
         <?php
 		}
 	?>

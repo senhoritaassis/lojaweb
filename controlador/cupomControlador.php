@@ -1,6 +1,7 @@
 <?php
 
 require_once "modelo/cupomModelo.php";
+require_once "modelo/produtoModelo.php";
 
 /** A */
 function adicionar() {
@@ -83,8 +84,8 @@ function confereCupom() {
         extract($_POST);
         
         $descricao = $_POST["descricao"];
-        $_SESSION["cupom"] = pegarCupomPorDescricao($descricao);
-        redirecionar("compra/", $_SESSION['cupom']);
+        $dados["cupom"] = pegarCupomPorDescricao($descricao);
+        redirecionar("cupom/desconto");
     } else {
         exibir("cupom/confereCupom");
     }
@@ -94,28 +95,25 @@ function confereCupom() {
 /** anon */  
         
 function desconto () {
-	if (ehPost()) {
-		$desconto = Caldesconto($_POST["nome"]);
-	} else {
-		$desconto = 0;
-        $total = 0;
-	}
-	$valorTotal = $_SESSION['total'];
-	$valorTotal = $valorTotal - $desconto;
-	$dados["produtos"] = $_SESSION["carrinho"];
-	$dados["total"] = $valorTotal;
-	$_SESSION['total'] = $valorTotal;
-	$_SESSION["quantcarrinho"] = 0;
-	if (isset($_SESSION["carrinho"])) {
-		$produtosCarrinho = array();
-		foreach ($_SESSION["carrinho"] as $produtoSessao) {
-			$_SESSION["quantcarrinho"] += $produtoSessao["quantidade"];
-			$produtoBanco = pegarProdutoPorId ($produtoSessao["idProduto"]);
-			$produtosCarrinho[] = $produtoBanco;
-		}
-		$dados["produtos"] = $produtosCarrinho;
-		exibir("carrinho/listar", $dados);
-	} else {
-		exibir("carrinho/listar", $dados);
-	}
+    if(ehPost()){
+        $desconto = 10;
+        $valorTotal = $_SESSION['total'];
+    $valorTotal = $valorTotal - $desconto;
+    $dados["produtos"] = $_SESSION["carrinho"];
+    $dados["total"] = $valorTotal;
+    $_SESSION['total'] = $valorTotal;
+    $_SESSION["quantcarrinho"] = 0;
+    if (isset($_SESSION["carrinho"])) {
+        $produtosCarrinho = array();
+        foreach ($_SESSION["carrinho"] as $produtoSessao) {
+            $_SESSION["quantcarrinho"] += $produtoSessao["quantidade"];
+            $produtoBanco = pegarProdutoPorId ($produtoSessao["idproduto"]);
+            $produtosCarrinho[] = $produtoBanco;
+        }
+        $dados["produtos"] = $produtosCarrinho;
+        exibir("compra/formulario", $dados);
+    } else {
+        exibir("compra/formulario", $dados);
+    }
+    }
 }

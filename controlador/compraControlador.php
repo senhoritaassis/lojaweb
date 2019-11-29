@@ -22,7 +22,6 @@ function index() {
     $produtosCarrinhoQuant = array();
     foreach ($_SESSION["carrinho"] as $produtoQuant) {
         $produtosCarrinhoQuant[] = $produtoQuant["quantidade"];
-        print_r($produtoQuant);
         $preco_produto = pegarProdutoPorId($produtoQuant["idproduto"]);
         $preco_total += ($produtoQuant["quantidade"] * $preco_produto['preco']);
     }
