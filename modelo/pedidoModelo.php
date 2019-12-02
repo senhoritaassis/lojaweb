@@ -9,6 +9,7 @@ function pegarTodosPedidos(){
     }
     return $pedidos;
 }
+
 function pegarPedidosPorId($id){
     $sql = "SELECT * FROM pedido WHERE IdUsuario = '$id'";
     $resultado = mysqli_query(conn(), $sql);
@@ -18,14 +19,30 @@ function pegarPedidosPorId($id){
     }
     return $pedidos;
 }
-function adicionarPedido($idFormaPagamento, $idusuario, $idendereco, $datacompra){
-    $idUser = $_SESSION["idLogado"];
-    $sql = "INSERT INTO pedido(idFormaPagamento, idusuario idendereco, datacompra) 
-    VALUES (NULL,'$idusuario','$idFormaPagamento','$idendereco','$datacompra)";
+
+function adicionarPedido($idFormaPagamento, $idendereco, $produtos){
+    $idUser = acessoPegarIDUsuario();
+
+    $dataCompra = date('Y-m-d');
+    $sql = "CALL sp_addPedido('$idFormaPagamento','$idUser', '$idendereco','$dataCompra')";
+
     $resultado = mysqli_query($cnx = conn(), $sql);
-    if(!$resultado) { die('Erro ao cadastrar pedido' . mysqli_error($cnx)); }
-    return 'Produto cadastrado com sucesso!';
+
+    $pedido = mysqli_fetch_assoc($resultado);
+
+    $id_pedido = $pedido['Msg'];
+
+    foreach ($produtos as $produto) {
+        $id_produto = $produto['idproduto'];
+        $quantidade = $produto['quantidade'];
+        $sql = "INSERT INTO pedido_produto VALUES ('$id_produto','$id_pedido','$quantidade')";
+        $resultado_pedido_produto = mysqli_query(conn(), $sql);
+    }
+
+    // if(!$resultado) { die('Erro ao cadastrar pedido' . mysqli_error($cnx)); }
+    // return 'Produto cadastrado com sucesso!';
 }
+
 function pegarPedidosPorInterDatas(){
     $sql = "SELECT * FROM pedido WHERE 
     DtPedido >= NOW()-INTERVAL 30 DAY";
@@ -36,8 +53,3 @@ function pegarPedidosPorInterDatas(){
     }
     return $pedidos;
 }
-
-//function pegarProdutoMunicipio
-
-// function vizualizar pedid
-

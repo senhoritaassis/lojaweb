@@ -36,3 +36,9 @@ function acessoPegarUsuarioLogado() {
         return $_SESSION["acesso"]["email"];
     }   
 }
+
+function acessoPegarIDUsuario() {
+    if (acessoUsuarioEstaLogado()) {
+        return $_SESSION["acesso"]["id"];
+    }   
+}

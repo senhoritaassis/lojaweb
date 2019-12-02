@@ -26,7 +26,7 @@
                 </div>
             </div>
 
-            <a href="login.html"><img id="user"src="./publico/imagem/user.png"></a>
+            <a href="./login/"><img id="user"src="./publico/imagem/user.png"></a>
             <a href="./carrinho/adicionar/"><img id="car"src ="./publico/imagem/car.png"></a>
            <a href="./produto/listarProdutos"><img id="edit" src="./publico/imagem/edit.png"></a>
         </div>

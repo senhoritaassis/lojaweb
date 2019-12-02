@@ -29,7 +29,7 @@ function pegarCupomPorId($id){
 
 function pegarCupomPorDescricao($descricao){
     //buscar um único cupom pelo $id
-    $sql = "SELECT desconto FROM cupom WHERE descricao = $descricao";
+    $sql = "SELECT desconto FROM cupom WHERE descricao = '$descricao'";
     //Roda nosso comando
     $resultado = mysqli_query(conn(), $sql);
     //Joga o resultado no array $cupom

@@ -4,42 +4,40 @@ CREATE DATABASE lojaweb;
 USE lojaweb;
 
 create table cliente(
-idCliente integer NOT NULL auto_increment,
-email varchar (50) NOT NULL,
-senha varchar (15) NOT NULL,
-cpf varchar (15) NOT NULL,
-nome varchar (60) NOT NULL,
-nascimento varchar (10) NOT NULL,
-sexo varchar (10) NOT NULL,
-tipo varchar(10) NOT NULL,
-telefone varchar (15) NOT NULL,
-primary key (idCliente)
+	idCliente integer NOT NULL auto_increment,
+	email varchar (50) NOT NULL,
+	senha varchar (15) NOT NULL,
+	cpf varchar (15) NOT NULL,
+	nome varchar (60) NOT NULL,
+	nascimento varchar (10) NOT NULL,
+	sexo varchar (10) NOT NULL,
+	tipo varchar(10) NOT NULL,
+	telefone varchar (15) NOT NULL,
+	primary key (idCliente)
 );
 
-
-
 create table categoria(
-idCategoria integer NOT NULL auto_increment,
-descricao varchar (200) NOT NULL,
-primary key (idCategoria)
+	idCategoria integer NOT NULL auto_increment,
+	descricao varchar (200) NOT NULL,
+	primary key (idCategoria)
 );
 
 CREATE TABLE produto(
-    idproduto BIGINT NOT NULL AUTO_INCREMENT,
-    idcategoria BIGINT NOT NULL,
-    preco VARCHAR(10) NOT NULL,
-    nomeproduto VARCHAR(100) NOT NULL,
-    tipo VARCHAR(60) NOT NULL,
-    cor VARCHAR(10) NOT NULL,
-    fabricante VARCHAR(100) NOT NULL,
-    descricao VARCHAR(500) NOT NULL,
-    tamanho VARCHAR(20) NOT NULL,
-    imagem VARCHAR(200) NOT NULL,
-    quantidade VARCHAR(60) NOT NULL,
-    estoque_minimo INT(8) NOT NULL,
-    estoque_maximo INT(8) NOT NULL,
-    PRIMARY KEY (idproduto),
-    foreign key (idCategoria) references categoria (idCategoria) on update cascade on delete cascade
+	idproduto BIGINT NOT NULL AUTO_INCREMENT,
+	idcategoria BIGINT NOT NULL,
+	preco VARCHAR(10) NOT NULL,
+	nomeproduto VARCHAR(100) NOT NULL,
+	tipo VARCHAR(60) NOT NULL,
+	cor VARCHAR(10) NOT NULL,
+	fabricante VARCHAR(100) NOT NULL,
+	descricao VARCHAR(500) NOT NULL,
+	tamanho VARCHAR(20) NOT NULL,
+	imagem VARCHAR(200) NOT NULL,
+	quantidade VARCHAR(60) NOT NULL,
+	estoque_minimo INT(8) NOT NULL,
+	estoque_maximo INT(8) NOT NULL,
+	PRIMARY KEY (idproduto),
+	foreign key (idCategoria) references categoria (idCategoria) on update cascade on delete cascade
 );
 
 create table usuario (
@@ -68,16 +66,14 @@ create table endereco (
 );
 
 CREATE TABLE FormaPagamento (
-idFormaPagamento integer NOT NULL auto_increment,
-descricao varchar (45) NOT NULL,
-primary key (idFormaPagamento)
+	idFormaPagamento integer NOT NULL auto_increment,
+	descricao varchar (45) NOT NULL,
+	primary key (idFormaPagamento)
 );
-
-
 
 create table pedido (
 	idpedido int(11) not null auto_increment,
-        idFormaPagamento int(11) not null,
+	idFormaPagamento int(11) not null,
 	idusuario int(11) not null,
 	idendereco int(11) not null,
 	datacompra date not null,
@@ -85,9 +81,6 @@ create table pedido (
 	foreign key (idusuario) references usuario(idusuario) on update cascade on delete cascade,
 	foreign key (idendereco) references usuario(idusuario) on update cascade on delete cascade
 );
-
-
-
 
 CREATE TABLE log_produto(
 	ID_LOG INT(11) NOT NULL  AUTO_INCREMENT,
@@ -97,7 +90,7 @@ CREATE TABLE log_produto(
 	ACAO VARCHAR(45) NOT NULL,
 	DADOS VARCHAR(1000) NOT NULL,
 	PRIMARY KEY (ID_LOG)
-	);
+);
 
 CREATE TABLE pedido_produto(
 	idproduto INT(11) NOT NULL,	
@@ -106,7 +99,7 @@ CREATE TABLE pedido_produto(
 	PRIMARY KEY (idproduto, idpedido),
 	FOREIGN KEY (idproduto) REFERENCES produtos(idproduto) ON UPDATE CASCADE ON DELETE CASCADE,
 	FOREIGN KEY (idpedido) REFERENCES pedido(idpedido) ON UPDATE CASCADE ON DELETE CASCADE
-	);
+);
 
 CREATE TABLE estoque(
 	idestoque INT(11) NOT NULL AUTO_INCREMENT,
@@ -114,11 +107,26 @@ CREATE TABLE estoque(
 	qtde INT(11) NOT NULL,
 	PRIMARY KEY (idestoque),
 	FOREIGN KEY (id_produto) REFERENCES produtos(idproduto) ON UPDATE CASCADE ON DELETE CASCADE
-	);
+);
 
 CREATE TABLE cupom(
-        idcupom int(11) not null auto_increment,
-        descricao varchar (60) NOT NULL,
-        desconto INT(11) NOT NULL,
-        primary key (idcupom)
+	idcupom int(11) not null auto_increment,
+	descricao varchar (60) NOT NULL,
+	desconto INT(11) NOT NULL,
+	primary key (idcupom)
 );
+
+
+DROP PROCEDURE IF EXISTS sp_addPedido;
+DELIMITER $$
+
+	CREATE PROCEDURE sp_addPedido ( v_pagamento BIGINT(11), v_user BIGINT(11), v_endereco BIGINT(11), v_data DATE)
+	BEGIN
+		INSERT INTO pedido VALUES (NULL, v_pagamento, v_user, v_endereco, v_data);
+
+		SET @id = LAST_INSERT_ID();
+
+		SELECT @id AS Msg;
+	END; $$
+
+DELIMITER ;
